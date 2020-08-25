@@ -17,36 +17,36 @@
 
 </template>
 <script>
-/* global $*/
-  export default{
-      name: 'Login',
-      data(){
-        return{
-          user:{
-              email: '',
-              password: '',
-          },
-      };
-    },  
-    methods:{
-        signin(){
-            const api =`${process.env.VUE_APP_APIPATH}api/auth/login`;
-            axios.$http.post(api, this.user).then((response) => {
-                const { token } = response.data;
-                const { expired } = response.data;
-                document.cookie = `hexToken=${token};expires=${new Date(expired * 1000)};`;
-                //登入成功或失敗提示
-                this.$bus.$emit('message:push', '登入成功', 'success');
-                
-                //轉換頁面
-                this.$router.push('/admin/products');
-            }).catch((error) => {
-                console.log(error);
-                this.$bus.$emit('message:push', '登入失敗', 'danger');
-            });
-        },
-    },
-};
+/* global $ */
+export default {
+  name: 'Login',
+  data () {
+    return {
+      user: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  methods: {
+    signin () {
+      const api = `${process.env.VUE_APP_APIPATH}api/auth/login`
+      axios.$http.post(api, this.user).then((response) => {
+        const { token } = response.data
+        const { expired } = response.data
+        document.cookie = `hexToken=${token};expires=${new Date(expired * 1000)};`
+        // 登入成功或失敗提示
+        this.$bus.$emit('message:push', '登入成功', 'success')
+
+        // 轉換頁面
+        this.$router.push('/admin/products')
+      }).catch((error) => {
+        console.log(error)
+        this.$bus.$emit('message:push', '登入失敗', 'danger')
+      })
+    }
+  }
+}
 </script>
 
 <style scoped lang="scss">

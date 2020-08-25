@@ -1,16 +1,17 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-Vue.use(VueRouter);
+
+Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    component: () => import('../views/Home.vue'),
+    component: () => import('../views/Index.vue'),
     children: [
       {
-        path: '/shop',
-        component: () => import('../views/Shop.vue')
+        path: '/home',
+        component: () => import('../views/Home.vue')
       },
       {
         path: '/products',
@@ -23,14 +24,17 @@ const routes = [
       {
         path: '/cart',
         component: () => import('../views/Cart.vue')
-      },
-    ],
+      }
+    ]
   },
-
+  {
+    path: '/login',
+    component: () => import('../views/Login.vue')
+  }
 ]
 
 const router = new VueRouter({
-  routes,
-});
+  routes
+})
 
-export default router;
+export default router

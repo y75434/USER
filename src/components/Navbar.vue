@@ -43,30 +43,29 @@
 </template>
 
 <script>
-import bus from "@/bus.js";
 
 export default {
-  data(){
+  data () {
     return {
-      carts: [],
-    };
+      carts: []
+    }
   },
   methods: {
-    getCart() {
-      const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/shopping`;
+    getCart () {
+      const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/shopping`
       this.$http.get(url)
         .then((res) => {
-          this.carts = res.data.data;
-        });
-    },
+          this.carts = res.data.data
+        })
+    }
   },
-  created() {
-    this.getCart();
+  created () {
+    this.getCart()
     this.$bus.$on('get-cart', () => {
-      this.getCart();
-    });
-  },
-};
+      this.getCart()
+    })
+  }
+}
 </script>
 
 <style scoped lang="scss">

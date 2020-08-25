@@ -96,60 +96,60 @@
         <div class="section-title mt-5"><h4>獨創教材</h4></div>
         <div class="row justify-content-center">
             <div class="card-deck">
-              <div class="card">                  
-                <img class="card-img-top" src="images/lesson_4.jpg">                 
+              <div class="card">
+                <img class="card-img-top" src="images/lesson_4.jpg">
                 <div class="card-body">
-                    <h5 class="card-title">主題會話</h5>				      		
-                    <div class="rating-icon float-left">			
+                    <h5 class="card-title">主題會話</h5>
+                    <div class="rating-icon float-left">
                 </div>
                 <div class="float-right">
-                    <span class="new-price">Topic Conversation</span>	
+                    <span class="new-price">Topic Conversation</span>
                 </div>
-                </div>	
-              </div>				  	
+                </div>
+              </div>
               <div class="card">
                 <img class="card-img-top" src="images/lesson_3.jpg">
                 <div class="card-body">
-                    <h5 class="card-title">文法</h5>				      		
-                    <div class="rating-icon float-left">   		
+                    <h5 class="card-title">文法</h5>
+                    <div class="rating-icon float-left">
                 </div>
                 <div class="float-right">
-                    <span class="new-price">Grammar</span>	
+                    <span class="new-price">Grammar</span>
                 </div>
-                </div>	
+                </div>
               </div>
               <div class="card">
                 <img class="card-img-top" src="images/lesson_1.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">商務英文</h5>				      		
-                    <div class="rating-icon float-left"> 			
+                    <h5 class="card-title">商務英文</h5>
+                    <div class="rating-icon float-left">
                 </div>
                 <div class="float-right">
-                    <span class="new-price">Business English</span>	
+                    <span class="new-price">Business English</span>
                 </div>
-                </div>	
-              </div>			
+                </div>
+              </div>
               <div class="card">
                 <img class="card-img-top" src="images/lesson_2.jpg" alt="Card image cap">
                 <div class="card-body">
-                    <h5 class="card-title">旅遊英文</h5>				      		
-                    <div class="rating-icon float-left">                			
+                    <h5 class="card-title">旅遊英文</h5>
+                    <div class="rating-icon float-left">
                 </div>
                 <div class="float-right">
-                    <span class="new-price">Travel English</span>	
+                    <span class="new-price">Travel English</span>
                 </div>
-                </div>	
-              </div>		
+                </div>
+              </div>
               </div>
             </div>
             </div>
-        
+
     </div>
 </section>
 <!--教材結束-->
 
-
 <!--footer-->
+// eslint-disable-next-line vue/valid-template-root
 <footer class="footer-area">
   <div class="footer-top section-padding2">
       <div class="container">
@@ -202,14 +202,11 @@
               </div>
           </div>
       </div>
-  </div>                
+  </div>
 </footer>
-
 
 </template>
 
 <script>
-
-
 
 </script>

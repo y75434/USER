@@ -12,7 +12,7 @@
     <div class="tab-content" id="nav-tabContent">
       <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><div v-for="item in products" :key="item.id" class="col-md-4 mb-4">
         <div class="card border-0 shadow-sm" >
-          <div style="height: 300px; background-size: cover; background-position: center" :style="{backgroundImage: `url(${item.imageUrl})`}"></div>
+          <div style="height: 300px; background-size: cover; background-position: center" :style="{backgroundImage: `url(${item.imageUrl[0]})` }"></div>
             <div class="card-body">
                 <span class="badge badge-secondary float-right ml-2">{{ item.category }}</span>
                 <h5 class="card-title"><a href="#" class="text-dark">{{ item.title }}</a></h5>
@@ -38,76 +38,61 @@
       <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
       <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
       <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
-      
+
       </div>
     </div>
   </div>
 </div>
 </template>
 
-
-
-<script>
+<script type="module">
+// eslint-disable-next-line no-unused-vars
+/* global $ */
 export default {
-    name: 'Product',
-    data(){
-        return{
-            products: [],
-        };
+  name: 'Product',
+  data () {
+    return {
+      products: []
+    }
+  },
+  created () {
+    this.$http.get(`${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/products`)
+      .then((res) => {
+        this.products = res.data.data
+      })
+  },
+  methods: {
+    getProduct (id) {
+      // 讀取效果
+      this.status.loadingItem = id
+      const url = `${this.apipath}/api/${this.UUID}/ec/product/${id}`
+      console.log(id)
+      axios.get(url).then((response) => {
+        // 存取遠端資料
+        this.tempProduct = response.data.data
+        this.tempProduct.num = 1
+        // 強制寫入預設值 this.$set(this.tempProduct, 'num', 1);
+        this.status.loadingItem = ''// ajax結束後清除
+      })
     },
-    created(){
-        this.$http.get(`${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/products`)
-            .then((res) => {
-                this.products = res.data.data;
-            });
-    },
-    methods: {
-      getProducts(page = 1){//參數預設值
-            this.isLoading = true;
-            const url = `${this.apipath}/api/${this.UUID}/ec/products?page=${page}`;
-            axios.get(url).then((response) => {
-                //跑完後，loading消失
-                this.products = response.data.data;
-                this.isLoading = false;
-            }).catch((error => {
-                this.isLoading = false;
-            })
-            )},
-        getProduct(id) {
-            //讀取效果
-            this.status.loadingItem = id;
-            const url = `${this.apipath}/api/${this.UUID}/ec/product/${id}`;
-            console.log(id);
-            axios.get(url).then((response) => {
-                //存取遠端資料
-                this.tempProduct = response.data.data;
-                this.tempProduct.num = 1;
-                //強制寫入預設值 this.$set(this.tempProduct, 'num', 1);
-                $('#productModal').modal('show');
-                this.status.loadingItem = '';//ajax結束後清除
-            });
-        },
-        addToCart(item, quantity = 1){
-            this.status.loadingItem = item.id;
-            this.isLoading = false;
-            const url = `${this.apipath}/api/${this.UUID}/ec/shopping`;
-            const cart = {
-                product: item.id,
-                quantity,//quantity:quantity,的簡寫
-            };
-            //取得資料無論成功失敗都關閉
-            axios.post(url, cart).then(() =>{
-                this.isLoading = false;
-                this.status.loadingItem = '';
-                $('#productModal').modal('hide');
-                this.getCart();
-            }).catch((error) => {
-                this.isLoading = false;
-                this.status.loadingItem = '';
-                console.log(error.response.data.errors);
-                $('#productModal').modal('hide');
-            });
-        }
-    },
-};
+    addToCart (item, quantity = 1) {
+      this.status.loadingItem = item.id
+      this.isLoading = false
+      const url = `${this.apipath}/api/${this.UUID}/ec/shopping`
+      const cart = {
+        product: item.id,
+        quantity// quantity:quantity,的簡寫
+      }
+      axios.post(url, cart).then(() => {
+        this.isLoading = false
+        this.status.loadingItem = ''
+        this.getCart()
+      }).catch((error) => {
+        this.isLoading = false
+        this.status.loadingItem = ''
+        console.log(error.response.data.errors)
+      })
+    }
+  }
+}
 </script>
