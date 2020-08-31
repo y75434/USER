@@ -11,11 +11,10 @@ import 'bootstrap'
 
 Vue.config.productionTip = false
 
-windows.$ = $// 後面的$是上面jquery的$
+window.$ = $
 
 Vue.component('Loading', Loading)
 Vue.use(VueAxios, axios)
-Vue.component('Loading', Loading)
 Vue.filter('thousands', thousandsFilter)
 
 Vue.prototype.$bus = new Vue()

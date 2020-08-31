@@ -17,7 +17,6 @@
 
 </template>
 <script>
-/* global $ */
 export default {
   name: 'Login',
   data () {
@@ -31,7 +30,7 @@ export default {
   methods: {
     signin () {
       const api = `${process.env.VUE_APP_APIPATH}api/auth/login`
-      axios.$http.post(api, this.user).then((response) => {
+      this.$http.post(api, this.user).then((response) => {
         const { token } = response.data
         const { expired } = response.data
         document.cookie = `hexToken=${token};expires=${new Date(expired * 1000)};`
