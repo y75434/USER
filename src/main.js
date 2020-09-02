@@ -4,7 +4,6 @@ import VueAxios from 'vue-axios'
 import $ from 'jquery'
 import Loading from 'vue-loading-overlay'
 import 'vue-loading-overlay/dist/vue-loading.css'
-import thousandsFilter from './filter/thousands'
 import App from './App.vue'
 import router from './router'
 import 'bootstrap'
@@ -15,7 +14,6 @@ window.$ = $
 
 Vue.component('Loading', Loading)
 Vue.use(VueAxios, axios)
-Vue.filter('thousands', thousandsFilter)
 
 Vue.prototype.$bus = new Vue()
 
