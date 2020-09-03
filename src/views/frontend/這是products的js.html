@@ -1,0 +1,120 @@
+/* global $ */
+
+export default {
+  data () {
+    return {
+      status: {
+        loadingItem: ''
+      },
+      products: [],
+      carts: []
+    }
+  },
+  methods: {
+    getProducts (page = 1) { // 參數預設值
+      this.isLoading = true
+      const url = `${this.apipath}/api/${this.UUID}/ec/products?page=${page}`
+      this.get(url).then((response) => {
+        // 跑完後，loading消失
+        this.products = response.data.data
+        this.isLoading = false
+      // eslint-disable-next-line handle-callback-err
+      }).catch(error => {
+        this.isLoading = false
+      }
+      )
+    },
+    getProduct (id) {
+      // 讀取效果
+      this.status.loadingItem = id
+      const url = `${this.apipath}/api/${this.UUID}/ec/product/${id}`
+      console.log(id)
+      this.get(url).then((response) => {
+        // 存取遠端資料
+        this.tempProduct = response.data.data
+        this.tempProduct.num = 1
+        // 強制寫入預設值 this.$set(this.tempProduct, 'num', 1);
+        $('#productModal').modal('show')
+        this.status.loadingItem = ''// ajax結束後清除
+      })
+    },
+    addToCart (item, quantity = 1) {
+      this.status.loadingItem = item.id
+      this.isLoading = false
+      const url = `${this.apipath}/api/${this.UUID}/ec/shopping`
+      const cart = {
+        product: item.id,
+        quantity// quantity:quantity,的簡寫
+      }
+      // 取得資料無論成功失敗都關閉
+      this.post(url, cart).then(() => {
+        this.isLoading = false
+        this.status.loadingItem = ''
+        $('#productModal').modal('hide')
+        this.getCart()
+      }).catch((error) => {
+        this.isLoading = false
+        this.status.loadingItem = ''
+        console.log(error.response.data.errors)
+        $('#productModal').modal('hide')
+      })
+    },
+    getCart () { // 購物車
+      this.isLoading = true
+      const url = `${this.apipath}/api/${this.UUID}/ec/shopping`
+
+      this.get(url).then((response) => {
+        this.cart = response.data.data// 取得遠端購物車內容
+        this.quantityUpdata()// 執行算式
+        this.isLoading = false
+      })
+    },
+    // 更新數量
+    quantityUpdata (id, quantity) {
+      this.isLoading = true
+      const url = `${this.apipath}/api/${this.UUID}/ec/shopping`
+      const data = {
+        product: id
+      }
+      this.cart.forEach((item) => {
+        this.cartTotal += item.product.price * this.quantity
+      })
+      this.isLoading = false
+      this.patch(url, data).then(() => {
+        this.isLoading = false
+        this.getCart()
+      })
+    },
+    removeAllCartItem () {
+      this.isLoading = true
+      const url = `${this.apipath}/api/${this.UUID}/ec/shopping/all/product`
+      this.delete(url).then(() => {
+        this.isLoading = false
+        this.getCart()
+      })
+    },
+    removeCartItem (id) {
+      this.isLoading = true
+      const url = `${this.apipath}/api/${this.UUID}/ec/shopping/${id}`
+      this.delete(url).then(() => {
+        this.isLoading = false
+        this.getCart()
+      })
+    },
+    createOrder () {
+      this.isLoading = true
+      const url = `${this.apipath}/api/${this.UUID}/ec/orders`
+      this.post(url, this.form).then((response) => {
+        if (response.data.data.id) {
+          this.isLoading = false
+          $('#orderModal').modal('show')
+        }
+        // 重新渲染購物車
+        this.getCart()
+      }).catch((error) => {
+        this.isLoading = false
+        console.log(error.response.data.errors)
+      })
+    }
+  }
+}

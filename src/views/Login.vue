@@ -11,7 +11,7 @@
             <input id="inputPassword" v-model="user.password" type="password" class="form-control" placeholder="Password" required>
         </div>
         <button class="btn btn-lg btn-info btn-block" @click.prevent="login">登入</button>
-        <p class="mt-5 mb-3 text-muted"> &copy; 2020~∞ - 六角學院</p>
+        <p class="mt-5 mb-3 text-muted">要改顏色喔</p>
     </form>
 </div>
 

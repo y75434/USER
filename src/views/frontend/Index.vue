@@ -1,99 +1,21 @@
 <template>
   <div class="index">
-    <!--<div id="nav">
-      <div class="header-area">
-        <div class="header-top d-none d-sm-block navbar-fixed-top">
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <div class="header-default">
-                  <p>歡迎來到LearnEnglish</p>
-                </div>
-              </div>
-              <div class="col">
-                <div class="header-user-info">
-                  <router-link to="/">首頁
-                  <i class="fa fa-home"></i>
-                  </router-link>
-                  <router-link to="products">課程方案
-                  <i class="fa fa-heart"></i>
-                  </router-link>
-                  <router-link to="/login">會員專區
-                  <i class="fa fa-user"></i>
-                  </router-link>
-                  <router-link to="cart">購物車
-                  <i class="fas fa-shopping-cart"></i>
-                  </router-link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>--->
-    <!--輪播開始-->
-    <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-      </ol>
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block mh-100 " src="images/banner_5.jpg" alt="First slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block mh-100" src="images/banner_2.jpg" alt="Second slide">
-        </div>
-        <div class="carousel-item">
-          <img class="d-block mh-100 " src="images/banner_4.jpeg" alt="Third slide">
-        </div>
-      </div>
-      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-      </a>
-      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-      </a>
-    </div>
-    <!--輪播結束-->
-    <!--說明開始-->
-    <section class="service d-none d-sm-block">
-      <div class="container">
-        <div class="section-title mt-5"><h4>為什麼選擇我們</h4></div>
-        <div class="row text-center">
-          <div class="col-4">
-            <div class="single-item border border-secondary rounded">
-              <i class="fa fa-thumbs-up fa-4"></i>
-              <h4>優質師資團隊</h4>
-              <p>多達20個國家的專業英文家教</p>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="single-item border border-secondary rounded">
-              <i class="fas fa-book fa-4"></i>
-              <h4>專業英文教材</h4>
-              <p>多種主題</p>
-            </div>
-          </div>
-          <div class="col-4">
-            <div class="single-item border border-secondary rounded">
-              <i class="fas fa-clock fa-4"></i>
-              <h4>全年無休</h4>
-              <p>24小時線上營運</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
+    <Navbar></Navbar>
+    <router-view/>
+    <Footer></Footer>
   </div>
 </template>
 
 <script>
+import Navbar from '@/components/Navbar.vue'
+import Footer from '@/components/Footer.vue'
 
+export default {
+  components: {
+    Navbar,
+    Footer
+  }
+}
 </script>
 
 <style>
