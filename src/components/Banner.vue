@@ -64,7 +64,9 @@
         <div class="row justify-content-center">
           <div class="card-deck">
             <div class="card">
-              <img class="card-img-top" src="images/lesson_4.jpg">
+              <router-link to="/product/Qg7crJF5EahzBuSz0AGvvpLedewi5nYUAiMzxEfSAuLwkvc0Roa1ZHMYVOcjc23B">
+                <img class="card-img-top" src="images/lesson_4.jpg">
+              </router-link>
               <div class="card-body">
                   <h5 class="card-title">主題會話</h5>
                   <div class="rating-icon float-left">
@@ -75,7 +77,9 @@
               </div>
             </div>
             <div class="card">
-              <img class="card-img-top" src="images/lesson_3.jpg">
+              <router-link to="/product/omhiP9y75wc8LXoTBE9TX1kfCVGwEA2g3dhnzdIBZJuQBOWIFZrVJDN68DnxuNts">
+                <img class="card-img-top" src="images/lesson_3.jpg">
+              </router-link>
               <div class="card-body">
                   <h5 class="card-title">文法</h5>
                   <div class="rating-icon float-left">
@@ -86,7 +90,9 @@
               </div>
             </div>
             <div class="card">
-              <img class="card-img-top" src="images/lesson_1.jpg" alt="Card image cap">
+              <router-link to="/product/OyZ3Yyt4P2J4lzBN2soSmfKztr02fSOxdXYT1hUyEfuwAMSItCf4dHE8o5ucYtrA">
+                <img class="card-img-top" src="images/lesson_1.jpg">
+              </router-link>
               <div class="card-body">
                   <h5 class="card-title">商務英文</h5>
                   <div class="rating-icon float-left">
@@ -97,7 +103,9 @@
               </div>
             </div>
             <div class="card">
-              <img class="card-img-top" src="images/lesson_2.jpg" alt="Card image cap">
+              <router-link to="/product/sY2grGoewXaLd8GWJWnllVmCzskq5wFsjMzDfb3VfGy0VgVqvhXt42hH295q4y91">
+                <img class="card-img-top" src="images/lesson_2.jpg">
+              </router-link>
               <div class="card-body">
                   <h5 class="card-title">旅遊英文</h5>
                   <div class="rating-icon float-left">

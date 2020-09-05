@@ -1,44 +1,51 @@
 <template>
-  <div class="row">
-    <div class="col-lg-2 col-md-4">
-      <div class="list-group" id="list-tab" role="tablist">
-        <a class="list-group-item list-group-item-action active" data-toggle="list"  href="#" @click="category = 'all'">全部</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list"  href="#list-filter" @click="category = ''">會話</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list"  href="#list-filter" @click="category = ''">口說</a>
-        <a class="list-group-item list-group-item-action" data-toggle="list"  href="#list-filter" @click="category = ''">考試</a>
-      </div>
-    </div>
-    <div class="col-lg-10 col-md-8">
-      <div class="tab-content" id="nav-tabContent">
-        <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list"><div v-for="item in products" :key="item.id" class="col-md-4 mb-4">
-          <div class="card border-0 shadow-sm" >
-            <div style="height: 300px; background-size: cover; background-position: center" :style="{backgroundImage: `url(${item.imageUrl[0]})` }"></div>
-              <div class="card-body">
-                <span class="badge badge-secondary float-right ml-2">{{ item.category }}</span>
-                <h5 class="card-title"><a href="#" class="text-dark">{{ item.title }}</a></h5>
-                <p class="card-text" v-html="item.content">{{ item.content }}</p>
-                <div class="d-flex justify-content-between align-items-baseline">
-                  <div v-if="!item.price || item.price === item.origin_price" class="h5">{{ item.origin_price }} 元</div>
-                  <div v-else>
-                    <del class="h6">原價 {{ item.origin_price }} 元</del>
-                    <div class="h5">現在只要 {{ item.price }} 元</div>
+  <div class="product pt-3">
+    <loading :active.sync="isLoading"></loading>
+    <div class="container" v-if="product.id">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb bg-white">
+          <li class="breadcrumb-item"><router-link to="/">首頁</router-link></li>
+          <li class="breadcrumb-item"><router-link to="/products">課程方案</router-link></li>
+          <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
+        </ol>
+      </nav>
+      <div class="row mb-5">
+        <div class="col-lg-6">
+          <div class="d-flex justify-content-center">
+            <img :src="product.imageUrl[0]" alt="" class="img-fluid rounded" />
+          </div>
+        </div>
+        <div class="col-lg-6 d-flex justify-content-center align-items-center">
+          <div class="card border-0">
+            <div class="card-body">
+              <h2 class="card-title font-weight-bold" style="color: #6e6e6e;">{{ product.title }}</h2>
+              <p class="card-text">
+                {{ product.content }}
+              </p>
+              <div class="d-flex flex-column align-items-end mb-3">
+                <del class="mb-0 mb-2">
+                  原價 {{ product.origin_price }} / {{ product.unit }}
+                </del>
+                <p class="mb-0 h5 font-weight-bold" style="color:  #96827B;">
+                特價 {{ product.price }} / {{ product.unit }}
+                </p>
+              </div>
+              <p class="h5 text-right">小計 {{ (product.price * cartNum) }}</p>
+              <div class="d-flex">
+                <div class="input-group w-50 mr-3">
+                  <div class="input-group-prepend">
+                    <button class="" style="color: #fff; background: #ACABA7; border: 0;" @click="cartNum--" :disabled="cartNum <= 1">-</button>
+                  </div>
+                  <input type="number" min="1" class="form-control text-center"  v-model="cartNum"/>
+                  <div class="input-group-append">
+                    <button class="" style="color: #fff; background: #ACABA7; border: 0;" @click="cartNum++"> + </button>
                   </div>
                 </div>
-              </div>
-              <div class="card-footer d-flex">
-                <button type="button" class="btn btn-outline-secondary btn-sm" :disabled="status.loadingItem === item.id" @click="getProduct(item.id)">
-                  <i v-if="status.loadingItem === item.id" class="spinner-grow spinner-grow-sm"></i>查看更多
-                </button>
-                <button type="button" class="btn btn-outline-danger btn-sm ml-auto" :disabled="status.loadingItem === item.id" @click="addToCart(item)">
-                  <i v-if="status.loadingItem === item.id" class="spinner-grow spinner-grow-sm"></i>加到購物車
-                </button>
+                <button type="button" class="w-50" style="color: #fff; background: #ACABA7; border: 0;" @click="addToCart()">加入購物車</button>
               </div>
             </div>
           </div>
         </div>
-        <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-        <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-        <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
       </div>
     </div>
   </div>
@@ -46,48 +53,38 @@
 
 <script>
 export default {
-  name: 'Product',
   data () {
     return {
-      products: []
+      status: {
+        loadingItem: ''
+      },
+      product: {
+        num: 1,
+        imageUrl: []
+      }
     }
   },
   created () {
-    this.$http.get(`${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/products`)
+    /* console.log(this.$route.params.id); */
+    const { id } = this.$route.params
+    this.$http.get(`${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/product/${id}`)
       .then((res) => {
-        this.products = res.data.data
+        this.product = res.data.data
       })
   },
   methods: {
-    getProduct (id) {
-      // 讀取效果
-      this.status.loadingItem = id
-      const url = `${this.apipath}/api/${this.UUID}/ec/product/${id}`
-      console.log(id)
-      this.get(url).then((response) => {
-        // 存取遠端資料
-        this.tempProduct = response.data.data
-        this.tempProduct.num = 1
-        // 強制寫入預設值 this.$set(this.tempProduct, 'num', 1);
-        this.status.loadingItem = ''// ajax結束後清除
-      })
-    },
     addToCart (item, quantity = 1) {
       this.status.loadingItem = item.id
       this.isLoading = false
-      const url = `${this.apipath}/api/${this.UUID}/ec/shopping`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
       const cart = {
         product: item.id,
         quantity// quantity:quantity,的簡寫
       }
-      this.post(url, cart).then(() => {
+      this.$http.post(url, cart).then(() => {
         this.isLoading = false
         this.status.loadingItem = ''
         this.getCart()
-      }).catch((error) => {
-        this.isLoading = false
-        this.status.loadingItem = ''
-        console.log(error.response.data.errors)
       })
     }
   }
