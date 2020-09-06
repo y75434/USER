@@ -1,21 +1,20 @@
 <template>
   <div class="container">
     <form class="form-signin" @submit.prevent="signin">
-        <h1 class="h3 mb-3 font-weight-normal text-muted">請先登入</h1>
-        <div class="form-group">
-            <label for="inputEmail" class="sr-only">Email address</label>
-            <input id="inputEmail" v-model="user.email" type="email" class="form-control" placeholder="Email address" required autofocus>
-        </div>
-        <div class="form-group">
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input id="inputPassword" v-model="user.password" type="password" class="form-control" placeholder="Password" required>
-        </div>
-        <button class="btn btn-lg btn-info btn-block" @click.prevent="login">登入</button>
-        <p class="mt-5 mb-3 text-muted">要改顏色喔</p>
+      <h1 class="h3 mb-3 font-weight-normal text-muted">請先登入</h1>
+      <div class="form-group">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input id="inputEmail" v-model="user.email" type="email" class="form-control" placeholder="Email address" required autofocus>
+      </div>
+      <div class="form-group">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input id="inputPassword" v-model="user.password" type="password" class="form-control" placeholder="Password" required>
+      </div>
+      <button class="btn btn-lg btn-info btn-block" @click.prevent="login">登入</button>
     </form>
-</div>
-
+  </div>
 </template>
+
 <script>
 export default {
   name: 'Login',
@@ -35,13 +34,13 @@ export default {
         const { expired } = response.data
         document.cookie = `hexToken=${token};expires=${new Date(expired * 1000)};`
         // 登入成功或失敗提示
-        this.$bus.$emit('message:push', '登入成功', 'success')
+        this.$bus.$emit('message-push', '登入成功', 'success')
 
         // 轉換頁面
         this.$router.push('/admin/products')
       }).catch((error) => {
         console.log(error)
-        this.$bus.$emit('message:push', '登入失敗', 'danger')
+        this.$bus.$emit('message-push', '登入失敗', 'danger')
       })
     }
   }
@@ -67,6 +66,8 @@ body {
   max-width: 330px;
   padding: 15px;
   margin: auto;
+  justify-content: center;
+  align-items: center;
 }
 .form-signin .checkbox {
   font-weight: 400;

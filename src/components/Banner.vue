@@ -1,7 +1,7 @@
 <template>
   <div class="div">
         <!--輪播開始-->
-    <div id="carouselExampleIndicators" class="carousel slide" data-interval="3000" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide .d-sm-none" data-interval="3000" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -15,7 +15,7 @@
           <img class="d-block mh-100" src="../../public/images/banner_2.jpg" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block mh-100 " src="images/banner_7.jpg" alt="Third slide">
+          <img class="d-block mh-100 " src="../../public/images/banner_4.jpg" alt="Third slide">
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

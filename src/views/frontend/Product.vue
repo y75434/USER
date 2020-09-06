@@ -4,7 +4,7 @@
     <div class="container" v-if="product.id">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white">
-          <li class="breadcrumb-item"><router-link to="/">首頁</router-link></li>
+          <li class="breadcrumb-item text-muted"><router-link to="/">首頁</router-link></li>
           <li class="breadcrumb-item"><router-link to="/products">課程方案</router-link></li>
           <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
         </ol>
@@ -33,15 +33,13 @@
               <p class="h5 text-right">小計 {{ (product.price * cartNum) }}</p>
               <div class="d-flex">
                 <div class="input-group w-50 mr-3">
-                  <div class="input-group-prepend">
-                    <button class="" style="color: #fff; background: #ACABA7; border: 0;" @click="cartNum--" :disabled="cartNum <= 1">-</button>
-                  </div>
-                  <input type="number" min="1" class="form-control text-center"  v-model="cartNum"/>
-                  <div class="input-group-append">
-                    <button class="" style="color: #fff; background: #ACABA7; border: 0;" @click="cartNum++"> + </button>
-                  </div>
+                  <select name="unit" class="form-control mr-3 rounded-0" v-model="product.num">
+                    <option :value="num" v-for="num in 10" :key="num">
+                      {{ num }} {{ product.unit }}
+                    </option>
+                  </select>
                 </div>
-                <button type="button" class="w-50" style="color: #fff; background: #ACABA7; border: 0;" @click="addToCart()">加入購物車</button>
+                <button type="button" class="w-50" style="color: #fff; background: #96827B; border: 0;" @click="addToCart()">加入購物車</button>
               </div>
             </div>
           </div>
