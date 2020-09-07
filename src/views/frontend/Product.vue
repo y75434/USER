@@ -73,7 +73,7 @@ export default {
   methods: {
     addToCart (item, quantity = 1) {
       this.status.loadingItem = item.id
-      this.isLoading = false
+      this.isLoading = true
       const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
       const cart = {
         product: item.id,
@@ -83,6 +83,7 @@ export default {
         this.isLoading = false
         this.status.loadingItem = ''
         this.getCart()
+        this.$bus.$emit('get-cart')// 點擊後把數量傳到icon
       })
     }
   }
