@@ -60,12 +60,11 @@
               <div class="card border-0 mb-4 position-relative position-relative">
                 <router-link :to="`/product/${ item.id }`">
                   <img class="card-img-top rounded-0" style="height: 180px; background-size: cover; background-position: center;" :style="{ backgroundImage: `url(${ item.imageUrl[0] })` }">
-                    <i class="far fa-heart position-absolute" style="right: 16px; top: 16px"></i>
                 </router-link>
-                  <div class="card-body p-0">
-                    <h4 class="mb-0 mt-3">{{ item.title }}</h4>
-                    <p class="card-text mb-0">{{ item.price }}<span class="text-muted "> <del>{{ item.origin_price }}</del></span></p>
-                    <button class="btn btn-lg btn-info btn-block" @click.prevent="addToCart(item)">加入購物車</button>
+                  <div class="card-body p-0 ">
+                    <h4 class="mb-0 mt-3">{{ item.title }}<span class="badge badge-secondary float-right" >{{ item.category }}</span></h4>
+                    <p class="card-text mb-0">特價 {{ item.price }} 元<span class="text-muted float-right"> <del>原價 {{ item.origin_price }} 元</del></span></p>
+                    <button class="btn btn-lg btn-info btn-block " style="color: #000;" @click.prevent="addToCart(item.id)">加入購物車</button>
                   </div>
               </div>
             </div>
@@ -79,12 +78,14 @@
 <script>
 
 export default {
-  name: 'Products',
   data () {
     return {
       category: '',
       products: []
     }
+  },
+  status: {
+    loadingItem: ''// 需先給預設值不然會出錯
   },
   created () {
     /* console.log('UUID', process.env.VUE_APP_UUID); */
@@ -92,6 +93,22 @@ export default {
       .then((res) => {
         this.products = res.data.data
       })
+  },
+  methods: {
+    addToCart (item, quantity = 1) {
+      this.status.loadingItem = item.id
+      this.isLoading = true
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/shopping`
+      const cart = {
+        product: item.id,
+        quantity// quantity:quantity,的簡寫
+      }
+      this.$http.post(url, cart).then(() => {
+        this.isLoading = false
+        this.status.loadingItem = ''
+        this.$bus.$emit('get-cart')// 點擊後把數量傳到icon
+      })
+    }
   }
 }
 </script>

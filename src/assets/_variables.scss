@@ -67,11 +67,11 @@ $colors: map-merge(
 $primary:       $blue !default;
 $secondary:     $gray-600 !default;
 $success:       $green !default;
-$info:          #E6DDCE !default;
+$info:          #acaba7 !default;
 $warning:       $yellow !default;
 $danger:        $red !default;
 $light:         $gray-100 !default;
-$dark:          $gray-800 !default;
+$dark:          #96827b !default;
 
 $theme-colors: () !default;
 $theme-colors: map-merge(

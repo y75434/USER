@@ -28,6 +28,10 @@ const routes = [
       {
         path: 'order',
         component: () => import('../views/frontend/Order.vue')
+      },
+      {
+        path: 'finished',
+        component: () => import('../views/frontend/Finished.vue')
       }
     ]
   },

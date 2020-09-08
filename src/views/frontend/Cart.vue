@@ -25,7 +25,7 @@
                         <i class="fas fa-minus"></i>
                       </button>
                     </div>
-                    <input type="number"  min="1" class="form-control border-1 text-center my-auto shadow-none" readonly v-model.number="item.quantity" aria-describedby="button-addon1" value="1">
+                    <input type="number"  min="1" class="form-control-plaintext  text-center  " readonly v-model.number="item.quantity" aria-describedby="button-addon1" value="1">
                     <div class="input-group-prepend">
                       <button class="btn btn-outline-dark border-1 py-2" type="button" @click.prevent="quantityUpdate(item.product.id, item.quantity + 1);">
                         <i class="fas fa-plus"></i>
@@ -69,11 +69,13 @@
                 </tr>
               </tbody>
             </table>
-            <div class="d-flex justify-content-between mt-4">
+            <div class="d-flex justify-content-between mt-4  mb-5 border-outline-brown">
               <p class="mb-0 h4 font-weight-bold">總計</p>
-              <p class="mb-0 h4 font-weight-bold"  type="number">{{ cartTotal | money }}</p>
+              <p class="mb-0 h4 font-weight-bold float-right"  type="number">{{ cartTotal | money }}</p>
             </div>
-            <a href="#" class="btn btn-secondary btn-block mt-4 col-md-2" >確認</a>
+            <div class="   border-outline-brown ">
+              <router-link to="/order" class="btn btn-secondary btn-block col-md-8 float-right" >前往結帳</router-link>
+            </div>
           </div>
         </div>
       </div>
