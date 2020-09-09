@@ -46,18 +46,17 @@ export default {
     // 取得購物車資訊
     getCart () {
       this.isLoading = true
-      const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/ec/shopping`
+      const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/shopping`
       this.$http.get(url).then((response) => {
         this.cartTotal = response.data.data.length
-        this.isLoading = false
-      })
-    },
-    created () {
-      this.getCart()
-      this.$bus.$on('get-cart', () => {
-        this.getCart()
       })
     }
+  },
+  created () {
+    this.getCart()
+    this.$bus.$on('get-cart', () => {
+      this.getCart()
+    })
   }
 }
 </script>

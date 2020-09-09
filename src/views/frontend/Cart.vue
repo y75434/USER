@@ -74,7 +74,7 @@
               <p class="mb-0 h4 font-weight-bold float-right"  type="number">{{ cartTotal | money }}</p>
             </div>
             <div class="   border-outline-brown ">
-              <router-link to="/order" class="btn btn-secondary btn-block col-md-8 float-right" >前往結帳</router-link>
+              <router-link to="/order" class="btn btn-warning btn-block col-md-8 float-right" >前往結帳</router-link>
             </div>
           </div>
         </div>
@@ -116,7 +116,7 @@ export default {
     totalUpdate () {
       let total = 0
       this.carts.forEach((item) => {
-        total += item.product.price * this.quantity
+        total += item.product.price * item.quantity
       })
       this.cartTotal = total
     },

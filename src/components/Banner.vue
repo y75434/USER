@@ -33,21 +33,21 @@
       <div class="container">
         <div class="section-title mt-5"><h4>為什麼選擇我們</h4></div>
         <div class="row text-center">
-          <div class="col-4">
+          <div class="col-sm-12 col-md-4 mb-2">
             <div class="single-item border border-secondary rounded">
               <i class="fa fa-thumbs-up fa-4"></i>
               <h4>優質師資團隊</h4>
               <p>多達20個國家的專業英文家教</p>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-sm-12 col-md-4 mb-2">
             <div class="single-item border border-secondary rounded">
               <i class="fas fa-book fa-4"></i>
               <h4>專業英文教材</h4>
               <p>多種主題</p>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-sm-12 col-md-4 mb-2">
             <div class="single-item border border-secondary rounded">
               <i class="fas fa-clock fa-4"></i>
               <h4>全年無休</h4>
@@ -62,7 +62,7 @@
       <div class="container">
         <div class="section-title mt-5"><h4>獨創教材</h4></div>
         <div class="row justify-content-center">
-          <div class="card-deck">
+          <div class="card-deck col-sm-12">
             <div class="card">
               <router-link to="/product/Qg7crJF5EahzBuSz0AGvvpLedewi5nYUAiMzxEfSAuLwkvc0Roa1ZHMYVOcjc23B">
                 <img class="card-img-top" src="images/lesson_4.jpg">

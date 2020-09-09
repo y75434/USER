@@ -10,7 +10,7 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input id="inputPassword" v-model="user.password" type="password" class="form-control" placeholder="Password" required>
       </div>
-      <button class="btn btn-lg btn-info btn-block" @click.prevent="login">登入</button>
+      <button class="btn btn-lg btn-info btn-block text-white"  @click.prevent="login">登入</button>
     </form>
   </div>
 </template>
@@ -51,6 +51,7 @@ export default {
 html,
 body {
   height: 100%;
+
 }
 body {
   display: -ms-flexbox;
@@ -60,6 +61,7 @@ body {
   padding-top: 40px;
   padding-bottom: 40px;
   background-color: #f5f5f5;
+  margin: auto;
 }
 .form-signin {
   width: 100%;
