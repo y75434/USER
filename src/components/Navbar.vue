@@ -1,7 +1,7 @@
 <template>
   <div id="nav">
     <div class="header-area">
-      <div class="header-top d-none d-sm-block navbar-fixed-top">
+      <div class="header-top d-none d-sm-block">
         <div class="container">
           <div class="row">
             <div class="col">
@@ -23,7 +23,7 @@
                 <router-link class="navbar-brand" to="/cart">購物車
                 <i class="fas fa-shopping-cart"></i>
                 <span class="badge badge-pill badge-danger"
-                 style="transform: translateX(-4px) translateY(6px);">{{ cartTotal }}
+                 style="transform: translateX(-4px) translateY(6px);" >{{ cartTotal }}
                 </span>
                 </router-link>
               </div>
@@ -39,7 +39,7 @@
 export default {
   data () {
     return {
-      cartTotal: 0
+      cartTotal: []
     }
   },
   methods: {
@@ -76,4 +76,10 @@ li {
 a {
   color: #42b983;
 }
+
+@media (max-width: 768px) {
+    .nav-link.active {
+      background-color: rgb(189, 156, 114);
+    }
+  }
 </style>

@@ -1,5 +1,6 @@
 <template>
   <div class=" container mt-5 mb-5">
+    <loading :active.sync="isLoading"></loading>
     <div><h3 class="mx-5">我的購物車</h3>
       <div class="row justify-content-center">
         <div class="col-md-7" v-if="carts.length > 0">
@@ -44,15 +45,13 @@
           </table>
         </div>
         <div v-else>
-          <div class="col-md-7" >
-            <div class="d-flex justify-content-center my-7">
-              <h4 class="mb-3 warning-text">購物車無商品，快去逛逛</h4>
-              <router-link to="/products" class="text-dark mt-5 mt-3">
-                <i class="fas fa-chevron-left mr-2"></i>
-                繼續購物
-              </router-link>
-            </div>
-          </div>
+          <h4 class="font-weight-bold">目前購物車是空的</h4>
+          <p class="font-weight-normal text-muted mt-2">
+            <router-link to="/products" class="text-dark mt-5 mt-3">
+            <i class="fas fa-chevron-left "></i>
+            繼續購物
+            </router-link>
+          </p>
         </div>
         <div class="col-md-4 ">
           <div class="border p-4 mb-4">

@@ -1,5 +1,6 @@
 <template>
   <div class="product pt-3">
+    <loading :active.sync="isLoading"></loading>
     <div class="container pt-3" v-if="product.id">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white">
@@ -49,6 +50,8 @@
 </template>
 
 <script>
+import Toast from '@/components/Toast'
+
 export default {
   data () {
     return {
@@ -81,7 +84,19 @@ export default {
       this.$http.post(url, cart).then(() => {
         this.isLoading = false
         this.status.loadingItem = ''
-        this.$bus.$emit('get-cart')// 點擊後把數量傳到icon
+        this.$bus.$emit('get-cart')// 點擊後把數量傳到icon'
+        Toast.fire({
+          title: '已加入購物車',
+          icon: 'success'
+        })
+      }).catch((err) => {
+        const errorData = err.response.data.errors
+        if (errorData) {
+          Toast.fire({
+            title: `${errorData}`,
+            icon: 'warning'
+          })
+        }
       })
     }
   }

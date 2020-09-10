@@ -1,5 +1,6 @@
 <template>
   <div class="Home">
+    <loading :active.sync="isLoading"></loading>
     <Banner></Banner>
     <router-view/>
   </div>

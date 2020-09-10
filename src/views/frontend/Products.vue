@@ -1,5 +1,6 @@
 <template>
   <div class="products">
+    <loading :active.sync="isLoading"></loading>
     <div class="container mt-md-5 mt-3 mb-5 ">
       <div class="row">
         <div class="col-md-3">
@@ -44,7 +45,7 @@
                   <div class="card-body p-0 ">
                     <h4 class="mb-0 mt-3">{{ item.title }}<span class="badge badge-secondary float-right" >{{ item.category }}</span></h4>
                     <p class="card-text mb-0">特價 {{ item.price }} 元<span class="text-muted float-right"> <del>原價 {{ item.origin_price }} 元</del></span></p>
-                    <button class="btn btn-lg btn-warning btn-block mt-2 rounded" style="color: #fff;" @click.prevent="addToCart(item.id)">加入購物車</button>
+                    <button class="btn btn-lg btn-warning btn-block mt-2 rounded" style="color: #fff;" @click.prevent="addToCart(item, quantity=1)">加入購物車</button>
                   </div>
               </div>
             </div>
@@ -56,19 +57,24 @@
 </template>
 
 <script>
+import Toast from '@/components/Toast'
 
 export default {
   data () {
     return {
+      status: {
+        loadingItem: ''// 需先給預設值不然會出錯
+      },
       filterType: '',
       products: [],
+      product: {
+        num: 1
+      },
       categories: []
     }
   },
-  status: {
-    loadingItem: ''// 需先給預設值不然會出錯
-  },
   created () {
+    this.isLoading = true
     /* console.log('UUID', process.env.VUE_APP_UUID); */
     this.$http.get(`${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/products`)
       .then((res) => {
@@ -76,6 +82,7 @@ export default {
         // 把分類顯示，沒放一點進此頁時看不到產品
         this.categories = this.products
       })
+    this.isLoading = false
   },
   methods: {
     addToCart (item, quantity = 1) {
@@ -90,8 +97,18 @@ export default {
         this.isLoading = false
         this.status.loadingItem = ''
         this.$bus.$emit('get-cart')// 點擊後把數量傳到icon
+        Toast.fire({
+          title: '已加入購物車',
+          icon: 'success'
+        })
       }).catch((err) => {
-        console.log(err.response.data.errors)
+        const errorData = err.response.data.errors
+        if (errorData) {
+          Toast.fire({
+            title: `${errorData}`,
+            icon: 'warning'
+          })
+        }
       })
     },
     getCart () { // 購物車

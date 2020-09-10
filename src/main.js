@@ -20,8 +20,6 @@ window.$ = $
 Vue.component('Loading', Loading)
 Vue.use(VueAxios, axios)
 
-Vue.prototype.$bus = new Vue()
-
 Object.keys(rules).forEach((rule) => {
   extend(rule, rules[rule])
 })

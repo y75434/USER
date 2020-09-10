@@ -1,5 +1,6 @@
 <template>
   <div class="my-5 row justify-content-center">
+    <loading :active.sync="isLoading"></loading>
     <div><h3 class="mx-5">請填寫聯絡資料</h3>
       <validation-observer v-slot="{ invalid }" class="col-md-8">
         <form @submit.prevent="createOrder">
@@ -52,7 +53,9 @@
             <textarea name="請輸入" id="message" v-model="form.message" class="form-control" cols="30" rows="3"></textarea>
           </div>
           <div class="text-right">
+            <router-link to="/finished">
             <button type="submit" class="btn btn-secondary col-md-12 " :disabled="invalid">送出</button>
+            </router-link>
           </div>
         </form>
       </validation-observer>
