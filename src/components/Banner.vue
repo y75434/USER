@@ -32,6 +32,8 @@
     <section class="service d-none d-sm-block">
       <div class="container">
         <div class="section-title mt-5"><h4>為什麼選擇我們</h4></div>
+        我們於2018年成立，致力提供多元化教材及服務，因應不同背景學生的需求，協助他們提升英文能力，並鼓勵終身學習。
+我們的老師擁有豐富教學經驗，對教學充滿熱誠，透過線上即時互動的方式，讓學生快速吸收教學內容，促進學生學習英文的樂趣。
         <div class="row text-center">
           <div class="col-sm-12 col-md-4 mb-2">
             <div class="single-item border border-secondary rounded">
@@ -120,13 +122,64 @@
       </div>
     </section>
     <!--教材結束-->
+    <!---swiper-->
+    <div class="section-title mt-5"><h4></h4></div>
+    <Sale/>
+    <!---swiper-->
+    <!---優惠專區-->
+    <div class="container">
+      <div class="section-title mt-5"><h4>優惠專區</h4></div>
+      <div class=" d-flex justify-content-around mb-5" id="subscribe">
+        <img src="images/banner_7.jpg" class="img">
+        <div class="subInput d-flex flex-column justify-content-center">
+          <label for="subscribe" class="font-weight-bold text-main mb-5">
+            填寫Email送您免費體驗課
+          </label>
+          <input id="subscribe" type="text" placeholder="請輸入電子郵件" class="mb-5"/>
+          <button type="button" class="btn btn-danger px-3 py-1">確認</button>
+        </div>
+      </div>
+    </div>
+    <!---優惠專區-->
   </div>
 </template>
 
 <script>
+import Swiper from 'swiper'
+import 'swiper/swiper-bundle.css'
+import Sale from '@/components/Swiper.vue'
 
+export default {
+  data () {
+    return {
+      bannerSwiper: {}
+    }
+  },
+  components: {
+    Sale
+  },
+  methods: {
+    setSwiper () {
+      this.bannerSwiper = new Swiper('.homeBanner', {
+        slidesPerView: 'auto',
+        loop: true,
+        speed: 800,
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
+        }
+      })
+    }
+  },
+  mounted () {
+    this.setSwiper()
+  }
+}
 </script>
 
-<style>
+<style lang="scss">
+.img {
+  height: 300px;
+  }
 
 </style>

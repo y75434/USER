@@ -38,6 +38,16 @@ const routes = [
   {
     path: '/login',
     component: () => import('../views/Login.vue')
+  },
+  {
+    path: '/admin',
+    component: () => import('../views/dashboard/Products.vue'),
+    children: [
+      {
+        path: 'products',
+        component: () => import('../views/dashboard/Products.vue')
+      }
+    ]
   }
 ]
 

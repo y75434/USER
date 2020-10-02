@@ -1,6 +1,7 @@
 <template>
   <div class="container">
-    <form class="form-signin" @submit.prevent="signin">
+  <loading :active.sync="isLoading"></loading>
+    <form class="form-signin" @submit.prevent="signin()">
       <h1 class="h3 mb-3 font-weight-normal text-muted">請先登入</h1>
       <div class="form-group">
         <label for="inputEmail" class="sr-only">Email address</label>
@@ -10,12 +11,14 @@
         <label for="inputPassword" class="sr-only">Password</label>
         <input id="inputPassword" v-model="user.password" type="password" class="form-control" placeholder="Password" required>
       </div>
-      <button class="btn btn-lg btn-info btn-block text-white"  @click.prevent="login">登入</button>
+      <button class="btn btn-lg btn-info btn-block text-white">登入</button>
     </form>
   </div>
 </template>
 
 <script>
+import swal from 'sweetalert'
+
 export default {
   name: 'Login',
   data () {
@@ -33,14 +36,18 @@ export default {
         const { token } = response.data
         const { expired } = response.data
         document.cookie = `hexToken=${token};expires=${new Date(expired * 1000)};`
-        // 登入成功或失敗提示
-        this.$bus.$emit('message-push', '登入成功', 'success')
-
+        this.isLoading = false
         // 轉換頁面
         this.$router.push('/admin/products')
-      }).catch((error) => {
-        console.log(error)
-        this.$bus.$emit('message-push', '登入失敗', 'danger')
+      }).catch(() => {
+        this.isLoading = false
+        swal({
+          title: '登入失敗',
+          text: '登入失敗，請重新嘗試',
+          icon: 'error',
+          buttons: false,
+          timer: 1000
+        })
       })
     }
   }
