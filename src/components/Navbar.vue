@@ -14,11 +14,11 @@
                 <router-link class="navbar-brand" to="/">首頁
                 <i class="fa fa-home"></i>
                 </router-link>
+                <router-link class="navbar-brand" to="/about">關於我們
+                <i class="fa fa-user"></i>
+                </router-link>
                 <router-link class="navbar-brand" to="/products">課程方案
                 <i class="fa fa-heart"></i>
-                </router-link>
-                <router-link class="navbar-brand" to="/login">會員專區
-                <i class="fa fa-user"></i>
                 </router-link>
                 <router-link class="navbar-brand" to="/cart">購物車
                 <i class="fas fa-shopping-cart"></i>

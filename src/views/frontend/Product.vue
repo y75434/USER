@@ -30,10 +30,10 @@
                 特價 {{ product.price }} / {{ product.unit }}
                 </p>
               </div>
-              <p class="h5 text-right" type="number">小計 {{ (product.price * product.num) | 0  }}</p>
+              <p class="h5 text-right" type="number">小計 {{ (product.price * product.num) | product.price  }}</p>
               <div class="d-flex">
                 <div class="input-group w-50 mr-3">
-                  <select name="unit" class="form-control mr-3 rounded-0" v-model="product.num">
+                  <select name="unit" class="form-control mr-3 rounded-0" v-model="product.num" >
                     <option :value="num" v-for="num in 10" :key="num" >
                       {{ num }} {{ product.unit }}
                     </option>
@@ -46,11 +46,14 @@
         </div>
       </div>
     </div>
+    <h3 class="text-main text-center font-weight-bold mb-6">相關產品</h3>
+    <Related :product="product" @update="getProduct" />
   </div>
 </template>
 
 <script>
 import Toast from '@/components/Toast'
+import Related from '@/components/Related.vue'
 
 export default {
   data () {
@@ -64,12 +67,16 @@ export default {
       }
     }
   },
+  components: {
+    Related
+  },
   created () {
     /* console.log(this.$route.params.id); */
     const { id } = this.$route.params
     this.$http.get(`${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/product/${id}`)
       .then((res) => {
         this.product = res.data.data
+        this.product.num = 1 // 忘記加入導致小計NaN
       })
   },
   methods: {
@@ -98,6 +105,12 @@ export default {
           })
         }
       })
+    },
+    getProduct () {
+      this.$http.get(`${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/products`)
+        .then((res) => {
+          this.product = res.data.data
+        })
     }
   }
 }

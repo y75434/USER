@@ -32,6 +32,10 @@ const routes = [
       {
         path: 'finished',
         component: () => import('../views/frontend/Finished.vue')
+      },
+      {
+        path: 'about',
+        component: () => import('../views/frontend/About.vue')
       }
     ]
   },

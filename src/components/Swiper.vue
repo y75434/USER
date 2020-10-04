@@ -2,33 +2,24 @@
   <div>
     <div class="swiper-container sale mb-6">
       <div class="swiper-wrapper">
-        <!-- 1 -->
         <div class="swiper-slide">
-          <router-link to="product/sY2grGoewXaLd8GWJWnllVmCzskq5wFsjMzDfb3VfGy0VgVqvhXt42hH295q4y91">
-            <img src="https://images.unsplash.com/photo-1504542982118-59308b40fe0c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"  />
-          </router-link>
-          <p class="text-main text-decoration-none mt-3">旅遊英文</p>
+          <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"  />
         </div>
-        <!-- 2 -->
         <div class="swiper-slide">
-          <router-link to="product/VQq5Q3PFNDHT5i7I492Sy5exYVTB3lmrzSWrB52STVyHY6abGI1WDmt8zirhF1Qw">
-            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=967&q=80"  />
-          </router-link>
-          <p class="text-main text-decoration-none mt-3">單字片語</p>
+          <img src="https://images.unsplash.com/photo-1573496528816-a104a722b3db?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"  />
         </div>
         <!-- 3 -->
         <div class="swiper-slide">
-          <router-link to="product/omhiP9y75wc8LXoTBE9TX1kfCVGwEA2g3dhnzdIBZJuQBOWIFZrVJDN68DnxuNts">
-            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1974&q=80"   />
-          </router-link>
-          <p class="text-main text-decoration-none mt-3">文法</p>
+          <img src="https://images.unsplash.com/photo-1561677843-39dee7a319ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"  />
         </div>
-        <!-- 4 -->
         <div class="swiper-slide">
-          <router-link to="/product/OyZ3Yyt4P2J4lzBN2soSmfKztr02fSOxdXYT1hUyEfuwAMSItCf4dHE8o5ucYtrA">
-            <img src="https://images.unsplash.com/photo-1444653614773-995cb1ef9efa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=755&q=80" />
-          </router-link>
-          <p class="text-main text-decoration-none mt-3">商務英文</p>
+          <img src="https://images.pexels.com/photos/4173115/pexels-photo-4173115.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1589386417686-0d34b5903d23?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" />
+        </div>
+        <div class="swiper-slide">
+          <img src="https://images.unsplash.com/photo-1590650213165-c1fef80648c4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" />
         </div>
       </div>
     </div>
@@ -77,12 +68,8 @@ export default {
 </script>
 
 <style lang="scss">
-.sale {
-  img {
-    width: 300px;
-  }
-}
-.hotSlide:hover {
-  opacity: 0.3;
+.sale img{
+  width: 300px;
+  border-radius: 5%;
 }
 </style>
