@@ -96,16 +96,27 @@
     <Sale/>
     <!---swiper-->
     <!---優惠專區-->
-    <div class="container">
-      <div class="section-title mt-5"><h4>優惠專區</h4></div>
-      <div class=" d-flex justify-content-around mb-5" id="subscribe">
-        <img src="images/banner_7.jpg" class="img">
-        <div class="subInput d-flex flex-column justify-content-center">
-          <label for="subscribe" class="font-weight-bold text-main mb-5">
-            填寫Email送您免費體驗課
-          </label>
-          <input id="subscribe" type="text" placeholder="請輸入電子郵件" class="mb-5"/>
-          <button type="button" class="btn btn-danger px-3 py-1">確認</button>
+    <div class="container mb-5">
+      <div class="section-title mt-5 "><h4>優惠專區</h4></div>
+      <div class="row flex-md-row-reverse flex-column">
+        <div class="col-md-6">
+          <img src="images/banner_7.jpg" alt="" class="img-fluid">
+        </div>
+        <div class="col-md-6 d-flex flex-column justify-content-center mt-md-0 mt-3">
+          <h2 class="font-weight-bold">填寫Email送您免費體驗課</h2>
+          <div class="input-group mb-0 mt-4">
+            <validation-observer v-slot="{ invalid }">
+              <validation-provider v-slot="{ errors,classes}" rules="required|email">
+                <input id="Email" v-model="email" placeholder="請輸入電子郵件" type="email" class="form-control mb-2" :class="classes">
+                <button class="btn btn-dark rounded-0" type="button" id="search" @click.prevent="send()" :disabled="invalid">
+                  確認
+                </button>
+                <div class="input-group-append">
+                <span class="text-danger">{{ errors[0] }}</span>
+                </div>
+              </validation-provider>
+            </validation-observer>
+          </div>
         </div>
       </div>
     </div>
@@ -117,6 +128,7 @@
 import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import Sale from '@/components/Swiper.vue'
+import Toast from '@/components/Toast'
 
 export default {
   data () {
@@ -137,6 +149,12 @@ export default {
           delay: 2500,
           disableOnInteraction: false
         }
+      })
+    },
+    send () {
+      Toast.fire({
+        title: '填寫完成，請至信箱查看信件',
+        icon: 'success'
       })
     }
   },

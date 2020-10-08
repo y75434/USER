@@ -2,13 +2,12 @@
   <div>
     <div class="swiper-container sale mb-6">
       <div class="swiper-wrapper">
-        <div class="swiper-slide">
+        <div class="swiper-slide ">
           <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"  />
         </div>
         <div class="swiper-slide">
           <img src="https://images.unsplash.com/photo-1573496528816-a104a722b3db?ixlib=rb-1.2.1&auto=format&fit=crop&w=750&q=80"  />
         </div>
-        <!-- 3 -->
         <div class="swiper-slide">
           <img src="https://images.unsplash.com/photo-1561677843-39dee7a319ca?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"  />
         </div>
