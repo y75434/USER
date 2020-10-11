@@ -39,7 +39,7 @@
 export default {
   data () {
     return {
-      cartTotal: []
+      cartTotal: 0
     }
   },
   methods: {
