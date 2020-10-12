@@ -43,7 +43,17 @@
               </tr>
             </tbody>
           </table>
-        <div class="col-md-4 ">
+        </div>
+        <div v-else class="col-md-7 row justify-content-center align-items-center">
+          <h4 class="font-weight-bold ">目前購物車是空的</h4>
+          <p class="font-weight-normal text-muted mt-2">
+            <router-link to="/products" class="text-dark mt-5 mt-3">
+            <i class="fas fa-chevron-left "></i>
+            繼續購物
+            </router-link>
+          </p>
+        </div>
+        <div class="col-md-4  justify-content-center align-items-center">
           <div class="border p-4 mb-4">
             <h4 class="font-weight-bold mb-4">訂單</h4>
             <table class="table text-dark ">
@@ -66,16 +76,6 @@
               <router-link to="/order" class="btn btn-warning btn-block col-md-8 float-right" >前往結帳</router-link>
             </div>
           </div>
-        </div>
-      </div>
-        <div v-else>
-          <h4 class="font-weight-bold">目前購物車是空的</h4>
-          <p class="font-weight-normal text-muted mt-2">
-            <router-link to="/products" class="text-dark mt-5 mt-3">
-            <i class="fas fa-chevron-left "></i>
-            繼續購物
-            </router-link>
-          </p>
         </div>
       </div>
     </div>

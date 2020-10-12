@@ -1,5 +1,6 @@
 <template>
     <div class="about">
+     <loading :active.sync="isLoading"></loading>
       <!--說明開始-->
       <section class="service d-none d-sm-block">
         <div class="container">

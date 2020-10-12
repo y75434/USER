@@ -46,8 +46,6 @@
         </div>
       </div>
     </div>
-    <h3 class="text-main text-center font-weight-bold mb-6">相關產品</h3>
-    <Related :product="product" @update="getProduct" />
   </div>
 </template>
 
@@ -71,10 +69,12 @@ export default {
     Related
   },
   created () {
+    this.isLoading = true
     /* console.log(this.$route.params.id); */
     const { id } = this.$route.params
     this.$http.get(`${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/ec/product/${id}`)
       .then((res) => {
+        this.isLoading = false
         this.product = res.data.data
         this.product.num = 1 // 忘記加入導致小計NaN
       })
