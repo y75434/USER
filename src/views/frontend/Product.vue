@@ -64,9 +64,6 @@ export default {
       }
     }
   },
-  components: {
-    Related
-  },
   created () {
     this.isLoading = true
     /* console.log(this.$route.params.id); */
