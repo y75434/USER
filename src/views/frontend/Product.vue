@@ -51,7 +51,6 @@
 
 <script>
 import Toast from '@/components/Toast'
-import Related from '@/components/Related.vue'
 
 export default {
   data () {
