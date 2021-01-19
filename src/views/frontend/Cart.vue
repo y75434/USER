@@ -1,10 +1,10 @@
 <template>
   <div class="container">
     <loading :active.sync="isLoading"></loading>
-    <h3 class="">我的購物車</h3>
+    <h3 class="p-5">我的購物車</h3>
       <section class="row justify-content-center" v-if="carts.length > 0">
         <div class="col-md-7">
-          <table class="table" >
+          <table class="table table-td">
             <thead>
               <tr>
                 <th scope="col" class="border-0 px-3" >產品名稱</th>
@@ -38,14 +38,14 @@
                   <p class="mb-0 ml-auto">{{ item.product.price | money }}/{{ item.product.unit }}</p>
                 </td>
                 <td class="border-0 align-middle">
-                  <button type="button" @click.prevent="removeCartItem(item.product.id)" class="btn btn-sm"><i class="fas fa-times"></i></button>
+                  <button type="button" @click.prevent="removeCartItem(item.product.id)" class="btn btn-sm"><i class="fas fa-trash-alt"></i></button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
-        <div class="col-md-5  justify-content-center align-items-center">
-          <div class="border p-4 mb-4">
+        <div class="col-md-5 justify-content-center align-items-center">
+          <div class="border p-5 mb-5">
             <h4 class="font-weight-bold mb-4">訂單</h4>
             <table class="table text-dark ">
               <tbody>
@@ -60,12 +60,10 @@
               </tbody>
             </table>
             <div class="d-flex justify-content-between mt-4 border-outline-brown">
-              <p class="mb-0 h4 font-weight-bold">總計</p>
+              <p class="mb-4 h4 font-weight-bold">總計</p>
               <p class="mb-0 h4 font-weight-bold float-right"  type="number">{{ cartTotal | money }}</p>
             </div>
-            <div class=" border-outline-brown ">
-              <router-link to="/order" class="btn btn-warning btn-block col-md-8 float-right" >前往結帳</router-link>
-            </div>
+            <router-link to="/order" class="btn btn-warning btn-block float-right" >前往結帳</router-link>
           </div>
         </div>
       </section>

@@ -28,89 +28,46 @@
       </a>
     </div>
     <!--輪播結束-->
-    <!--教材開始-->
-    <section class="featured">
-      <div class="container">
-        <div class="section-title mt-5"><h4>獨創教材</h4></div>
-        <div class="row justify-content-center">
-          <div class="card-deck col-sm-12">
-            <div class="card">
-              <router-link to="/product/Qg7crJF5EahzBuSz0AGvvpLedewi5nYUAiMzxEfSAuLwkvc0Roa1ZHMYVOcjc23B">
-                <img class="card-img-top" src="images/lesson_4.jpg">
-              </router-link>
-              <div class="card-body">
-                  <h5 class="card-title">主題會話</h5>
-                  <div class="rating-icon float-left">
-              </div>
-              <div class="float-right">
-                  <span class="new-price">Topic Conversation</span>
-              </div>
-              </div>
-            </div>
-            <div class="card">
-              <router-link to="/product/omhiP9y75wc8LXoTBE9TX1kfCVGwEA2g3dhnzdIBZJuQBOWIFZrVJDN68DnxuNts">
-                <img class="card-img-top" src="images/lesson_3.jpg">
-              </router-link>
-              <div class="card-body">
-                  <h5 class="card-title">文法</h5>
-                  <div class="rating-icon float-left">
-              </div>
-              <div class="float-right">
-                  <span class="new-price">Grammar</span>
-              </div>
-              </div>
-            </div>
-            <div class="card">
-              <router-link to="/product/OyZ3Yyt4P2J4lzBN2soSmfKztr02fSOxdXYT1hUyEfuwAMSItCf4dHE8o5ucYtrA">
-                <img class="card-img-top" src="images/lesson_1.jpg">
-              </router-link>
-              <div class="card-body">
-                  <h5 class="card-title">商務英文</h5>
-                  <div class="rating-icon float-left">
-              </div>
-              <div class="float-right">
-                  <span class="new-price">Business English</span>
-              </div>
-              </div>
-            </div>
-            <div class="card">
-              <router-link to="/product/sY2grGoewXaLd8GWJWnllVmCzskq5wFsjMzDfb3VfGy0VgVqvhXt42hH295q4y91">
-                <img class="card-img-top" src="images/lesson_2.jpg">
-              </router-link>
-              <div class="card-body">
-                  <h5 class="card-title">旅遊英文</h5>
-                  <div class="rating-icon float-left">
-              </div>
-              <div class="float-right">
-                  <span class="new-price">Travel English</span>
-              </div>
-              </div>
-            </div>
-          </div>
+    <!-- 介紹 -->
+    <section class="container">
+      <div class="row">
+        <div class="col-md-7 pr-0">
+          <img src="images/banner_6.jpg" class="rounded h-50">
+        </div>
+        <div class="col-md-5 bg-light p-5 ml-0 h-50">
+          <h3>關於我們</h3>
+          <p>我們於2018年成立，致力提供多元化教材及服務，因應不同背景學生的需求，協助他們提升英文能力，並鼓勵終身學習。 我們的老師擁有豐富教學經驗，對教學充滿熱誠，透過線上即時互動的方式，讓學生快速吸收教學內容，促進學生學習英文的樂趣。</p>
         </div>
       </div>
     </section>
-    <!--教材結束-->
+    <!-- 介紹 -->
     <!---swiper-->
-    <div class="section-title mt-5"><h4>專業師資</h4></div>
+    <div class="section-title mt-5"><h4>獨創教材</h4></div>
     <Sale/>
     <!---swiper-->
-    <!---優惠專區-->
-    <div class="container mb-5">
-      <div class="section-title mt-5 "><h4>優惠專區</h4></div>
-      <div class="row flex-md-row-reverse flex-column">
-        <div class="col-md-6">
-          <img src="images/banner_7.jpg" alt="" class="img-fluid">
+    <!---學員心得-->
+    <section class="container">
+      <div class="row">
+        <div class="col-4">
+          <img src="">
+          <p>Linda</p>
+          <span></span>
+          <p>上課的平台在使用操作上簡單方便</p>
         </div>
-        <div class="col-md-6 d-flex flex-column justify-content-center mt-md-0 mt-3">
-          <h2 class="font-weight-bold"></h2>
-          <div class="input-group mb-0 mt-4">
+        <div class="col-4"></div>
+        <div class="col-4"></div>
+      </div>
+    </section>
+    <!---優惠專區-->
+    <section class="jumbotron jumbotron-fluid follow d-flex flex-column justify-content-center mb-0">
+      <div class="container">
+        <div class="row justify-content-center">
+          <h2 class="font-weight-bold text-secondary ">填寫Email送您免費體驗課</h2>
+          <div class="input-group input-group-lg justify-content-center d-flex">
             <validation-observer v-slot="{ invalid }">
               <validation-provider v-slot="{ errors,classes}" rules="required|email">
-                <input id="Email" v-model="email" placeholder="請輸入電子郵件" type="email" class="form-control mb-2" :class="classes">
-                <button class="btn btn-dark rounded-0" type="button" id="search" @click.prevent="send()" :disabled="invalid">
-                  確認
-                </button>
+                <input id="Email" v-model="email" placeholder="請輸入電子郵件" type="email" class="form-control mb-2" :class="classes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                <button class="btn btn-primary rounded" id="inputGroup-sizing-sm" @click.prevent="send()" :disabled="invalid">傳送</button>
                 <div class="input-group-append">
                 <span class="text-danger">{{ errors[0] }}</span>
                 </div>
@@ -119,29 +76,7 @@
           </div>
         </div>
       </div>
-    </div>
-    <!---優惠專區-->
-    <div class="jumbotron jumbotron-fluid follow d-flex flex-column justify-content-center mb-0">
-      <div class="container">
-        <div class="row ">
-          <div class="col-md-4">
-            <h2 class="font-weight-bold text-secondary">填寫Email送您免費體驗課</h2>
-            <div class="input-group input-group-lg">
-              <validation-observer v-slot="{ invalid }">
-                <validation-provider v-slot="{ errors,classes}" rules="required|email">
-                  <input id="Email" v-model="email" placeholder="請輸入電子郵件" type="email" class="form-control mb-2" :class="classes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-                  <button class="btn btn-primary rounded" id="inputGroup-sizing-sm" @click.prevent="send()" :disabled="invalid">傳送</button>
-                  <div class="input-group-append">
-                  <span class="text-danger">{{ errors[0] }}</span>
-                  </div>
-                </validation-provider>
-              </validation-observer>
-            </div>
-          </div>
-          <div class="col-md-8"></div>
-        </div>
-      </div>
-    </div>
+    </section>
   </div>
 </template>
 
