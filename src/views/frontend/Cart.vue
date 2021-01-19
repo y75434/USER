@@ -1,9 +1,9 @@
 <template>
-  <div class=" container mt-5 mb-5">
+  <div class="container">
     <loading :active.sync="isLoading"></loading>
-    <div><h3 class="mx-5">我的購物車</h3>
-      <div class="row justify-content-center">
-        <div class="col-md-7" v-if="carts.length > 0">
+    <h3 class="">我的購物車</h3>
+      <section class="row justify-content-center" v-if="carts.length > 0">
+        <div class="col-md-7">
           <table class="table" >
             <thead>
               <tr>
@@ -44,16 +44,7 @@
             </tbody>
           </table>
         </div>
-        <div v-else class="col-md-7 row justify-content-center align-items-center">
-          <h4 class="font-weight-bold ">目前購物車是空的</h4>
-          <p class="font-weight-normal text-muted mt-2">
-            <router-link to="/products" class="text-dark mt-5 mt-3">
-            <i class="fas fa-chevron-left "></i>
-            繼續購物
-            </router-link>
-          </p>
-        </div>
-        <div class="col-md-4  justify-content-center align-items-center">
+        <div class="col-md-5  justify-content-center align-items-center">
           <div class="border p-4 mb-4">
             <h4 class="font-weight-bold mb-4">訂單</h4>
             <table class="table text-dark ">
@@ -68,17 +59,22 @@
                 </tr>
               </tbody>
             </table>
-            <div class="d-flex justify-content-between mt-4  mb-5 border-outline-brown">
+            <div class="d-flex justify-content-between mt-4 border-outline-brown">
               <p class="mb-0 h4 font-weight-bold">總計</p>
               <p class="mb-0 h4 font-weight-bold float-right"  type="number">{{ cartTotal | money }}</p>
             </div>
-            <div class="   border-outline-brown ">
+            <div class=" border-outline-brown ">
               <router-link to="/order" class="btn btn-warning btn-block col-md-8 float-right" >前往結帳</router-link>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+      </section>
+      <section v-else class="row justify-content-center">
+        <h3 class="">目前購物車是空的</h3>
+        <router-link to="/products" class="text-dark btn btn-success btn-lg" type="button">
+        繼續購物
+        </router-link>
+      </section>
   </div>
 </template>
 

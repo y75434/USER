@@ -103,7 +103,7 @@
           <img src="images/banner_7.jpg" alt="" class="img-fluid">
         </div>
         <div class="col-md-6 d-flex flex-column justify-content-center mt-md-0 mt-3">
-          <h2 class="font-weight-bold">填寫Email送您免費體驗課</h2>
+          <h2 class="font-weight-bold"></h2>
           <div class="input-group mb-0 mt-4">
             <validation-observer v-slot="{ invalid }">
               <validation-provider v-slot="{ errors,classes}" rules="required|email">
@@ -121,6 +121,27 @@
       </div>
     </div>
     <!---優惠專區-->
+    <div class="jumbotron jumbotron-fluid follow d-flex flex-column justify-content-center mb-0">
+      <div class="container">
+        <div class="row ">
+          <div class="col-md-4">
+            <h2 class="font-weight-bold text-secondary">填寫Email送您免費體驗課</h2>
+            <div class="input-group input-group-lg">
+              <validation-observer v-slot="{ invalid }">
+                <validation-provider v-slot="{ errors,classes}" rules="required|email">
+                  <input id="Email" v-model="email" placeholder="請輸入電子郵件" type="email" class="form-control mb-2" :class="classes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                  <button class="btn btn-primary rounded" id="inputGroup-sizing-sm" @click.prevent="send()" :disabled="invalid">傳送</button>
+                  <div class="input-group-append">
+                  <span class="text-danger">{{ errors[0] }}</span>
+                  </div>
+                </validation-provider>
+              </validation-observer>
+            </div>
+          </div>
+          <div class="col-md-8"></div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
