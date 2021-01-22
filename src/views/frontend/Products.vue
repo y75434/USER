@@ -62,6 +62,7 @@ import Toast from '@/components/Toast'
 export default {
   data () {
     return {
+      isLoading: false,
       status: {
         loadingItem: ''// 需先給預設值不然會出錯
       },

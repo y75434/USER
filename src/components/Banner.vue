@@ -41,6 +41,33 @@
       </div>
     </section>
     <!-- 介紹 -->
+    <!--說明開始-->
+    <section class="">
+      <section class="row text-center container-fluid bg-light">
+        <div class="col-12 col-md-4">
+          <div class="single-item">
+            <img src="images/hand_good.png" class="adv_pic">
+            <h4>優質師資團隊</h4>
+            <p>多達20個國家的專業英文家教</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="single-item">
+            <img src="images/study_english.png" class="adv_pic">
+            <h4>專業英文教材</h4>
+            <p>多種主題</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-4">
+          <div class="single-item">
+            <img src="images/clock.png" class="adv_pic">
+            <h4>全年無休</h4>
+            <p>24小時線上營運</p>
+          </div>
+        </div>
+      </section>
+    </section>
+    <!--說明開始-->
     <!---學員心得-->
     <section class="container mb-5">
       <h4 class="section-title mt-5">學員心得</h4>
