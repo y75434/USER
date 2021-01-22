@@ -28,34 +28,41 @@
       </a>
     </div>
     <!--輪播結束-->
-    <!-- 介紹 -->
-    <section class="container">
-      <div class="row">
-        <div class="col-md-7 pr-0">
-          <img src="images/banner_6.jpg" class="rounded h-50">
-        </div>
-        <div class="col-md-5 bg-light p-5 ml-0 h-50">
-          <h3>關於我們</h3>
-          <p>我們於2018年成立，致力提供多元化教材及服務，因應不同背景學生的需求，協助他們提升英文能力，並鼓勵終身學習。 我們的老師擁有豐富教學經驗，對教學充滿熱誠，透過線上即時互動的方式，讓學生快速吸收教學內容，促進學生學習英文的樂趣。</p>
-        </div>
-      </div>
-    </section>
-    <!-- 介紹 -->
     <!---swiper-->
     <div class="section-title mt-5"><h4>獨創教材</h4></div>
     <Sale/>
     <!---swiper-->
+     <!-- 介紹 -->
+    <section class="mb-3 d-flex flex-md-row flex-column h-100">
+      <img src="images/banner_6.jpg" class="w-50 rounded d-none d-md-block">
+      <div class=" d-flex flex-column justify-content-center bg-info rounded w-50 p-4">
+        <h3 class="font-weight-bold">關於我們</h3>
+        <p>我們於2018年成立，致力提供多元化教材及服務，因應不同背景學生的需求，協助他們提升英文能力，並鼓勵終身學習。 我們的老師擁有豐富教學經驗，對教學充滿熱誠，透過線上即時互動的方式，讓學生快速吸收教學內容，促進學生學習英文的樂趣。</p>
+      </div>
+    </section>
+    <!-- 介紹 -->
     <!---學員心得-->
-    <section class="container">
-      <div class="row">
-        <div class="col-4">
-          <img src="">
+    <section class="container mb-5">
+      <h4 class="section-title mt-5">學員心得</h4>
+      <div class="row justify-content-center">
+        <div class="col-4 text-center">
+          <img src="images/rate_1.png" class="rate_pic">
+          <p>Evan</p>
+          <span></span>
+          <p>上課的平台在使用操作上簡單方便</p>
+        </div>
+        <div class="col-4 text-center">
+          <img src="images/rate_2.png" class="rate_pic">
           <p>Linda</p>
           <span></span>
           <p>上課的平台在使用操作上簡單方便</p>
         </div>
-        <div class="col-4"></div>
-        <div class="col-4"></div>
+        <div class="col-4 text-center">
+          <img src="images/rate_3.png" class="rate_pic">
+          <p>Kevin</p>
+          <span></span>
+          <p>上課的平台在使用操作上簡單方便</p>
+        </div>
       </div>
     </section>
     <!---優惠專區-->
@@ -63,17 +70,17 @@
       <div class="container">
         <div class="row justify-content-center">
           <h2 class="font-weight-bold text-secondary ">填寫Email送您免費體驗課</h2>
-          <div class="input-group input-group-lg justify-content-center d-flex">
             <validation-observer v-slot="{ invalid }">
               <validation-provider v-slot="{ errors,classes}" rules="required|email">
-                <input id="Email" v-model="email" placeholder="請輸入電子郵件" type="email" class="form-control mb-2" :class="classes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-                <button class="btn btn-primary rounded" id="inputGroup-sizing-sm" @click.prevent="send()" :disabled="invalid">傳送</button>
+                <div class=" input-group justify-content-center d-flex">
+                  <input id="Email" v-model="email" placeholder="請輸入電子郵件" type="email" class="form-control mb-2" :class="classes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                  <button class="btn btn-primary rounded" @click.prevent="send()" :disabled="invalid">傳送</button>
+                </div>
                 <div class="input-group-append">
-                <span class="text-danger">{{ errors[0] }}</span>
+                  <span class="text-danger">{{ errors[0] }}</span>
                 </div>
               </validation-provider>
             </validation-observer>
-          </div>
         </div>
       </div>
     </section>
@@ -81,7 +88,7 @@
 </template>
 
 <script>
-import Swiper from 'swiper'
+// import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import Sale from '@/components/Swiper.vue'
 import Toast from '@/components/Toast'
@@ -96,17 +103,17 @@ export default {
     Sale
   },
   methods: {
-    setSwiper () {
-      this.bannerSwiper = new Swiper('.homeBanner', {
-        slidesPerView: 'auto',
-        loop: true,
-        speed: 800,
-        autoplay: {
-          delay: 2500,
-          disableOnInteraction: false
-        }
-      })
-    },
+    // setSwiper () {
+    //   this.bannerSwiper = new Swiper('.homeBanner', {
+    //     slidesPerView: 'auto',
+    //     loop: true,
+    //     speed: 800,
+    //     autoplay: {
+    //       delay: 2500,
+    //       disableOnInteraction: false
+    //     }
+    //   })
+    // },
     send () {
       Toast.fire({
         title: '填寫完成，請至信箱查看信件',
