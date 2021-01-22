@@ -1,37 +1,30 @@
 <template>
-  <div id="nav">
-    <div class="header-area">
-      <div class="header-top d-none d-sm-block">
-        <div class="container">
-          <div class="row">
-            <div class="col">
-              <div class="header-default">
-                <p>歡迎來到LearnEnglish</p>
-              </div>
-            </div>
-            <div class="col">
-              <div class="header-user-info">
-                <router-link class="navbar-brand" to="/">首頁
-                <i class="fa fa-home"></i>
-                </router-link>
-                <router-link class="navbar-brand" to="/about">關於我們
-                <i class="fa fa-user"></i>
-                </router-link>
-                <router-link class="navbar-brand" to="/products">課程方案
-                <i class="fa fa-heart"></i>
-                </router-link>
-                <router-link class="navbar-brand" to="/cart">購物車
-                <i class="fas fa-shopping-cart"></i>
-                <span class="badge badge-pill badge-danger"
-                 style="transform: translateX(-4px) translateY(6px);" >{{ cartTotal }}
-                </span>
-                </router-link>
-              </div>
-            </div>
-          </div>
+  <div>
+    <nav class="navbar navbar-expand-lg navbar-light p-3">
+      <a class="navbar-brand" href="#">歡迎來到LearnEnglish</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <router-link class="nav-link" to="/">首頁
+            <i class="fa fa-home"></i>
+          </router-link>
+          <router-link class="nav-link" to="/about">關於我們
+            <i class="fa fa-user"></i>
+          </router-link>
+          <router-link class="nav-link" to="/products">課程方案
+            <i class="fa fa-heart"></i>
+          </router-link>
+          <router-link class="nav-link" to="/cart">購物車
+            <i class="fas fa-shopping-cart"></i>
+            <span class="badge badge-pill badge-danger"
+              style="transform: translateX(-4px) translateY(6px);" >{{ cartTotal }}
+            </span>
+          </router-link>
         </div>
       </div>
-    </div>
+    </nav>
   </div>
 </template>
 

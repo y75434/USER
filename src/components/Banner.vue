@@ -1,7 +1,7 @@
 <template>
   <div class="div">
     <!--輪播開始-->
-    <div id="carouselExampleIndicators" class="carousel slide .d-sm-none" data-interval="3000" data-ride="carousel">
+    <div id="carouselExampleIndicators" class="carousel slide d-none d-md-block" data-interval="3000" data-ride="carousel">
       <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
         <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -29,13 +29,13 @@
     </div>
     <!--輪播結束-->
     <!---swiper-->
-    <div class="section-title mt-5"><h4>獨創教材</h4></div>
+    <div class="section-title my-5"><h4>獨創教材</h4></div>
     <Sale/>
     <!---swiper-->
      <!-- 介紹 -->
     <section class="mb-3 d-flex flex-md-row flex-column h-100">
       <img src="images/banner_6.jpg" class="w-50 rounded d-none d-md-block">
-      <div class=" d-flex flex-column justify-content-center bg-info rounded w-50 p-4">
+      <div class=" d-flex flex-column justify-content-center bg-light rounded w-50 p-4">
         <h3 class="font-weight-bold">關於我們</h3>
         <p>我們於2018年成立，致力提供多元化教材及服務，因應不同背景學生的需求，協助他們提升英文能力，並鼓勵終身學習。 我們的老師擁有豐富教學經驗，對教學充滿熱誠，透過線上即時互動的方式，讓學生快速吸收教學內容，促進學生學習英文的樂趣。</p>
       </div>

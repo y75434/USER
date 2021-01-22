@@ -3,7 +3,7 @@
     <loading :active.sync="isLoading"></loading>
     <div class="container mt-md-5 mt-3 mb-5 ">
       <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-3 d-none d-md-block">
           <div class="accordion border border-bottom border-top-0 border-left-0 border-right-0 mb-3" id="accordionExample">
             <div class="card border-0">
               <a class="list-group-item list-group-item-action px-0 py-4 bg-white border border-bottom-0 border-top border-left-0 border-right-0" href="#" @click.prevent="getFilter(filterType = '全部商品')">
@@ -35,7 +35,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-9">
+        <div class="col-md-9 col-12">
           <div class="row">
             <div class="col-md-4" v-for="item in categories" :key="item.id">
               <div class="card border-0 mb-4 position-relative shadow-sm">
