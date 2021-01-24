@@ -39,13 +39,9 @@
               <!-- 因為一定會選一個選項，所以不需要驗證 -->
               <select name="請輸入" v-model="form.payment" class="form-control required">
                 <option value="" disabled>請選擇付款方式</option>
-                <option value="webATM">Web ATM</option>
                 <option value="ATM">ATM</option>
                 <option value="CVS">CVS</option>
-                <option value="Barcode">Barcode</option>
-                <option value="Credit">Credit</option>
-                <option value="ApplePay">ApplePay</option>
-                <option value="GooglePay">GooglePay</option>
+                <option value="Credit">Credit Card</option>
               </select>
             </div>
             <div class="form-group">

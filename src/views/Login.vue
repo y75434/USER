@@ -1,18 +1,28 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
   <loading :active.sync="isLoading"></loading>
-    <form class="form-signin" @submit.prevent="signin()">
-      <h1 class="h3 mb-3 font-weight-normal text-muted">請先登入</h1>
-      <div class="form-group">
-        <label for="inputEmail" class="sr-only">Email address</label>
-        <input id="inputEmail" v-model="user.email" type="email" class="form-control" placeholder="Email address" required autofocus>
-      </div>
-      <div class="form-group">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input id="inputPassword" v-model="user.password" type="password" class="form-control" placeholder="Password" required>
-      </div>
-      <button class="btn btn-lg btn-info btn-block text-white">登入</button>
-    </form>
+    <section class="row bg-light">
+      <section class="col-md-5 vh-100 d-md-block d-none">
+        <img src="images/banner_3.jpeg" class="h-100 bg-cover">
+      </section>
+      <section class="col-md-7 col-12 d-flex align-items-center vh-100">
+        <form class="form-signin flex-column">
+          <h1 class="h3 mb-3 font-weight-normal text-muted">請先登入</h1>
+          <div class="form-group">
+            <label for="inputEmail" class="sr-only">Email address</label>
+            <input id="inputEmail" v-model="user.email" type="email" class="form-control" placeholder="Email address" required autofocus>
+          </div>
+          <div class="form-group">
+            <label for="inputPassword" class="sr-only">Password</label>
+            <input id="inputPassword" v-model="user.password" type="password" class="form-control" placeholder="Password" required>
+          </div>
+          <button class="btn btn-lg btn-info btn-block text-white mb-2"  @submit.prevent="signin()">登入</button>
+          <router-link to="/">
+           <button class="btn btn-lg btn-primary btn-block text-white">回首頁</button>
+          </router-link>
+        </form>
+      </section>
+    </section>
   </div>
 </template>
 
@@ -55,6 +65,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
+
 html,
 body {
   height: 100%;

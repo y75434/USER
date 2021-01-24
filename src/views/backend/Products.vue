@@ -37,19 +37,27 @@
         </tr>
       </tbody>
     </table>
+    <!-- 按鈕 -->
+    <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
   </div>
 </template>
 
 <script>
+import Pagination from '@/components/dashboard/Pagination'
+import Toast from '@/components/Toast'
+
 export default {
-  name: 'Products',
   data () {
     return {
       products: [],
       tempProduct: {
         imageUrl: []
-      }
+      },
+      pagination: {}
     }
+  },
+  components: {
+    Pagination
   },
   created () {
     this.getProducts()
@@ -61,8 +69,16 @@ export default {
         this.isLoading = false
         this.products = res.data.data
         this.pagination = res.data.meta.pagination
+      }).catch((err) => {
+        const errorData = err.response.data.errors
+        if (errorData) {
+          Toast.fire({
+            title: `${errorData}`,
+            icon: 'warning'
+          })
+        }
       })
     }
   }
 }
-</script>>
+</script>
