@@ -28,10 +28,10 @@ export default {
           }
           this.$http.defaults.headers.Authorization = `Bearer ${this.token}`
         }).catch((err) => {
-          const errorData = err.response.data.errors
-          if (errorData) {
+          // const errorData = err.response.data.errors
+          if (err) {
             Toast.fire({
-              title: `${errorData}`,
+              title: `${err}`,
               icon: 'warning'
             })
             this.$router.push('login')

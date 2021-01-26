@@ -15,7 +15,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(item) in products" :key="item.id">
+        <tr v-for="(item, index) in products" :key="index">
           <td>{{ item.category }}</td>
           <td>{{ item.title }}</td>
           <td class="text-right">{{ item.origin_price }}</td>
@@ -64,16 +64,17 @@ export default {
   },
   methods: {
     getProducts (page = 1) {
-      const url = `${process.env.VUE_APP_APIPATH}/api/${process.env.VUE_APP_UUID}/admin/ec/products?page=${page}`
+      const url = `${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/admin/ec/products?page=${page}`
+      this.isLoading = true
       this.$http.get(url).then((res) => {
         this.isLoading = false
         this.products = res.data.data
-        this.pagination = res.data.meta.pagination
+        // this.pagination = res.data.meta.pagination
       }).catch((err) => {
-        const errorData = err.response.data.errors
-        if (errorData) {
+        // const errorData = err.response.data.errors
+        if (err) {
           Toast.fire({
-            title: `${errorData}`,
+            title: `${err}`,
             icon: 'warning'
           })
         }
