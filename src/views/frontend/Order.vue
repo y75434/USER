@@ -2,7 +2,7 @@
   <div class="container">
     <div class="row justify-content-center ">
       <loading :active.sync="isLoading"></loading>
-      <div class="col-8">
+      <div class="col-8 my-5">
         <h3 class="text-center">請填寫聯絡資料</h3>
         <validation-observer v-slot="{ invalid }" class="col-md-8">
           <form @submit.prevent="createOrder">
@@ -52,7 +52,7 @@
             </div>
             <div class="text-right">
               <router-link to="/finished">
-              <button type="submit" class="btn btn-secondary col-md-12 " :disabled="invalid">送出</button>
+              <button type="submit" class="btn btn-secondary col-12 " :disabled="invalid">送出</button>
               </router-link>
             </div>
           </form>

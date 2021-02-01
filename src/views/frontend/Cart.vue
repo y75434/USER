@@ -67,11 +67,15 @@
           </div>
         </div>
       </section>
-      <section v-else class="row justify-content-center">
-        <h3 class="">目前購物車是空的</h3>
-        <router-link to="/products" class="text-dark btn btn-success btn-lg" type="button">
-        繼續購物
-        </router-link>
+      <section v-else class="row ">
+        <div class="justify-content-center align-items-center flex-column h-100 w-100 m-5">
+          <img src="images/neko.png" class="mx-auto cart-pic d-flex justify-content-center">
+          <h3 class="text-center text-secondary">目前購物車是空的</h3>          <div class="text-center">
+            <router-link to="/products" class=" btn btn-info btn-lg" type="button">
+            繼續購物
+            </router-link>
+          </div>
+        </div>
       </section>
   </div>
 </template>

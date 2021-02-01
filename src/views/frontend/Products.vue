@@ -35,12 +35,12 @@
             </div>
           </div>
         </div>
-        <div class="col-md-9 col-12">
+        <div class="col-9 mx-auto">
           <div class="row">
             <div class="col-md-4" v-for="item in categories" :key="item.id">
-              <div class="card border-0 mb-4 position-relative shadow-sm">
+              <div class="card border-0 mb-4 position-relative">
                 <router-link :to="`/product/${ item.id }`">
-                  <img class="card-img-top rounded" style="height: 180px; background-size: cover; background-position: center;" :style="{ backgroundImage: `url(${ item.imageUrl[0] })` }">
+                  <img class="card-img-top rounded product-img" style="height: 180px; background-size: cover; background-position: center;" :style="{ backgroundImage: `url(${ item.imageUrl[0] })` }">
                 </router-link>
                   <div class="card-body p-0 ">
                     <h4 class="mb-0 mt-3">{{ item.title }}<span class="badge badge-secondary float-right" >{{ item.category }}</span></h4>
