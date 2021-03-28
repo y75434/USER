@@ -1,8 +1,9 @@
 # week8
 
-## Project setup
+## LearnEnglish線上英文教學網
 ```
-npm install
+
+
 ```
 
 ### Compiles and hot-reloads for development
@@ -10,14 +11,24 @@ npm install
 npm run serve
 ```
 
-### Compiles and minifies for production
+### 頁面介紹
 ```
-npm run build
+＃首頁
+
+＃購物車頁面
 ```
 
-### Lints and fixes files
+### Plugin
 ```
-npm run lint
+Vue-fontawesome
+Vue-axios
+Vue-typed-js
+Vee-validate
+Vue-awesome-swiper
+Vue-loading-overlay
+Vue-router
+Vue-cli-plugin-pug
+
 ```
 
 ### Customize configuration
