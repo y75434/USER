@@ -41,15 +41,15 @@ const routes = [
   },
   {
     path: '/login',
-    component: () => import('../views/Login.vue')
+    component: () => import('../views/backend/Login.vue')
   },
   {
     path: '/admin',
-    component: () => import('../views/Dashboard.vue'),
+    component: () => import('../views/backend/Dashboard.vue'),
     children: [
       {
         path: 'products',
-        component: () => import('../views/backend/Products.vue')
+        component: () => import('../views/backend/dashboard/Products.vue')
       }
     ]
   }

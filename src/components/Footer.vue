@@ -5,7 +5,7 @@
           <p class="mb-0">© 2021. All Rights Reserved.</p>
           <ul class="d-flex list-unstyled mb-0 ">
             <li>
-              <router-link to="/admin/products">
+              <router-link to="/login">
                 <a type="submit" class=" text-white ">後台管理頁面</a>
               </router-link>
             </li>

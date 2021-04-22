@@ -3,6 +3,11 @@
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
+.nav-link{
+  text-align: center;
+  border-bottom: 1px $light;
+}
+
 .cart-pic{
   width: 150px;
   height: 150px;

@@ -6,7 +6,7 @@
         <img src="images/banner_3.jpeg" class="h-100 bg-cover">
       </section>
       <section class="col-md-7 col-12 d-flex align-items-center vh-100">
-        <form class="form-signin flex-column" @submit.prevent="signin()">
+        <form class="form-signin flex-column" @submit.prevent="signin">
           <h1 class="h3 mb-3 font-weight-normal text-muted">請先登入</h1>
           <div class="form-group">
             <label for="inputEmail" class="sr-only">Email address</label>
@@ -28,6 +28,7 @@
 
 <script>
 import swal from 'sweetalert'
+// import axios from 'axios'
 
 export default {
   name: 'Login',
@@ -43,12 +44,13 @@ export default {
   },
   methods: {
     signin () {
-      const api = `${process.env.VUE_APP_APIPATH}api/auth/login`
-      this.$http.post(api, this.user).then((response) => {
-        const { token } = response.data
-        const { expired } = response.data
-        document.cookie = `hexToken=${token};expires=${new Date(expired * 1000)};`
-        this.isLoading = false
+      const url = `${process.env.VUE_APP_APIPATH}api/auth/login`
+      this.$http.post(url, this.user).then((res) => {
+        const token = res.data.token
+        const expired = res.data.expired
+        console.log(res.data)
+        document.cookie = `token=${token};expires=${new Date(expired * 1000)}; path=/`
+        // this.isLoading = false
         // 轉換頁面
         this.$router.push('/admin/products')
       }).catch(() => {

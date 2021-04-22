@@ -100,7 +100,7 @@
             <validation-observer v-slot="{ invalid }">
               <validation-provider v-slot="{ errors,classes}" rules="required|email">
                 <div class="input-group-lg justify-content-center d-flex">
-                  <input id="Email" v-model="email" placeholder="請輸入電子郵件" type="email" class="form-control" :class="classes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+                  <input id="Email" placeholder="請輸入電子郵件" type="email" class="form-control" :class="classes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
                   <button class="btn btn-primary rounded" @click.prevent="send()" :disabled="invalid">傳送</button>
                 </div>
                 <div class="input-group-append">
@@ -149,7 +149,7 @@ export default {
     }
   },
   mounted () {
-    this.setSwiper()
+    // this.setSwiper()
   }
 }
 </script>
