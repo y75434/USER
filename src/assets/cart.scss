@@ -1,0 +1,55 @@
+thead{
+  border-top: 1px solid #e1e3e6;
+  border-bottom: 2px solid #cdcfd3;
+}
+
+tr{
+  border-top: 1px solid #e1e3e6;
+}
+
+td{
+  vertical-align: middle;
+}
+
+.delBtn{
+  width: 2rem;
+  height: 2rem;
+  border: 1px solid red;
+  padding: 5px;
+  border-radius: .5rem;
+}
+
+.process li{
+  font-weight: 500;
+  color: #b48353;
+}
+
+.num{
+  background-color: #b48353;
+  color: #fff;
+  border: 1.25px solid #b48353;
+  width: 5rem;
+  height: 5rem;
+  display: flex;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.processNum{
+  background-color: #fff;
+  color:  #b48353;
+}
+
+
+.orderForm{
+  border: 1px solid #c5ad77;
+  padding: 1rem;
+  background-color: hsl(0, 0%, 96%);
+}
+
+.receipt{
+  border: 1px solid #c5ad77;
+}

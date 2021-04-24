@@ -1,8 +1,4 @@
 
-// .intro{
-//   background-image: url("../../public/images/banner_6.jpg");
-// }
-
 
 .obj_fit{
   object-fit: cover;
@@ -11,10 +7,28 @@
 .adv_pic{
   height: 100px;
   width: 100px;
+  vertical-align: middle;
+}
+
+.singleItem{
+  width: 400px;
+}
+
+.adv{
+  margin: 20px 20px 0px -55px;
 }
 
 .rate_pic{
   border-radius: 100%;
   width: 70px;
   height: 70px;
+}
+
+.bg-email{
+  background-image: url(../public/images/banner_7.jpg);
+  // background-repeat: no-repeat;
+  background-position: center 27%;
+  height: calc(50vh - 8px);
+  background-size: cover ;
+
 }

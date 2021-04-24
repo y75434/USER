@@ -1,7 +1,11 @@
 <template>
   <div class="products">
     <loading :active.sync="isLoading"></loading>
-    <div class="container mt-md-5 mt-3 mb-5 ">
+    <div class="mb-5 w-100">
+      <div class="productHeader">
+      </div>
+      </div>
+    <div class="container">
       <div class="row">
         <div class="col-md-3 d-none d-md-block">
           <div class="accordion border border-bottom border-top-0 border-left-0 border-right-0 mb-3" id="accordionExample">

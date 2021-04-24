@@ -1,9 +1,23 @@
 <template>
   <div class="container">
-    <div class="row justify-content-center ">
+    <ul class="my-5 process d-flex justify-content-around">
+      <li class="text-center">
+        <span class="num processNum">1</span>
+        <p>購物車內容</p>
+      </li>
+      <li class="text-center">
+        <span class="num ">2</span>
+        <p>訂單填寫</p>
+      </li>
+      <li class="text-center">
+        <span class="num processNum">3</span>
+        <p>結帳</p>
+      </li>
+    </ul>
+    <div class="row justify-content-center">
       <loading :active.sync="isLoading"></loading>
-      <div class="col-8 my-5">
-        <h3 class="text-center">請填寫聯絡資料</h3>
+      <div class="col-6 mb-5 orderForm">
+        <h3 class="text-center text-secondary">請填寫聯絡資料</h3>
         <validation-observer v-slot="{ invalid }" class="col-md-8">
           <form @submit.prevent="createOrder">
             <div class="form-group">
@@ -50,7 +64,7 @@
               <!--rows為行數-->
               <textarea name="請輸入" id="message" v-model="form.message" class="form-control" cols="30" rows="3"></textarea>
             </div>
-            <div class="text-right">
+            <div class="text-center">
               <router-link to="/finished">
               <button type="submit" class="btn btn-secondary col-12 " :disabled="invalid">送出</button>
               </router-link>

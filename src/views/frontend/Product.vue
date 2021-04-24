@@ -4,8 +4,8 @@
     <div class="container pt-3" v-if="product.id">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white">
-          <li class="breadcrumb-item text-brown"><router-link to="/">首頁</router-link></li>
-          <li class="breadcrumb-item text-brown"><router-link to="/products">課程方案</router-link></li>
+          <li class="breadcrumb-item text-info"><router-link to="/">首頁</router-link></li>
+          <li class="breadcrumb-item text-info"><router-link to="/products">課程方案</router-link></li>
           <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
         </ol>
       </nav>

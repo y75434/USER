@@ -1,9 +1,22 @@
 <template>
   <div class="container">
     <loading :active.sync="isLoading"></loading>
-    <h3 class="p-5">我的購物車</h3>
+      <ul class="my-5 process d-flex justify-content-around">
+        <li class="text-center">
+          <span class="num">1</span>
+          <p>購物車內容</p>
+        </li>
+        <li class="text-center">
+          <span class="num processNum">2</span>
+          <p>訂單填寫</p>
+        </li>
+        <li class="text-center">
+          <span class="num processNum">3</span>
+          <p>結帳</p>
+        </li>
+      </ul>
       <section class="row justify-content-center" v-if="carts.length > 0">
-        <div class="col-md-7">
+        <div class="col-md-7 d-md-block d-none">
           <table class="table table-td">
             <thead>
               <tr>
@@ -15,37 +28,34 @@
             </thead>
             <tbody>
               <tr class="cart" v-for="item in carts" :key="item.id">
-                <th scope="row" class="border-0 px-0 font-weight-normal py-4 px-4" >
+                <td scope="row" class="border-0 px-0 font-weight-normal py-4" >
                   <img :src="item.product.imageUrl[0]" style="width: 90px; height: 90px; object-fit: cover;">
                   <p class="mb-0 font-weight-bold ml-3 d-inline-block">{{ item.product.title }}</p>
-                </th>
-                <td class="border-0 align-middle" style="max-width: 160px;">
-                  <div class="input-group pr-5">
-                    <div class="input-group-prepend">
-                      <button class="btn btn-outline-dark border-1 py-2" type="button"  @click.prevent="quantityUpdate(item.product.id, item.quantity -1)" :disabled="item.quantity === 1">
-                        <i class="fas fa-minus"></i>
-                      </button>
-                    </div>
-                    <input type="number"  min="1" class="form-control-plaintext  text-center  " readonly v-model.number="item.quantity" aria-describedby="button-addon1" value="1">
-                    <div class="input-group-prepend">
-                      <button class="btn btn-outline-dark border-1 py-2" type="button" @click.prevent="quantityUpdate(item.product.id, item.quantity + 1);">
-                        <i class="fas fa-plus"></i>
-                      </button>
-                    </div>
+                </td>
+                <td class="border-0 align-middle">
+                  <div class=" d-flex">
+                    <select v-model.number="item.quantity" class="form-control">
+                      <option class="text-center" value="1">1</option>
+                      <option class="text-center" value="2">2</option>
+                      <option class="text-center" value="3">3</option>
+                      <option class="text-center" value="4">4</option>
+                    </select>
                   </div>
                 </td>
                 <td class="border-0 align-middle">
                   <p class="mb-0 ml-auto">{{ item.product.price | money }}/{{ item.product.unit }}</p>
                 </td>
                 <td class="border-0 align-middle">
-                  <button type="button" @click.prevent="removeCartItem(item.product.id)" class="btn btn-sm"><i class="fas fa-trash-alt"></i></button>
+                  <button @click.prevent="removeCartItem(item.product.id)" class="delBtn btn-sm btn btn-outline-danger">
+                    <i class="fas fa-trash-alt"></i>
+                  </button>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
         <div class="col-md-5 justify-content-center align-items-center">
-          <div class="border p-5 mb-5">
+          <div class="receipt p-5 mb-5">
             <h4 class="font-weight-bold mb-4">訂單</h4>
             <table class="table text-dark ">
               <tbody>
@@ -63,7 +73,9 @@
               <p class="mb-4 h4 font-weight-bold">總計</p>
               <p class="mb-0 h4 font-weight-bold float-right"  type="number">{{ cartTotal | money }}</p>
             </div>
-            <router-link to="/order" class="btn btn-warning btn-block float-right" >前往結帳</router-link>
+            <div class="">
+              <router-link to="/order" class="btn btn-warning btn-block float-right mb-5" >前往結帳</router-link>
+            </div>
           </div>
         </div>
       </section>

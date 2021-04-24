@@ -28,46 +28,69 @@
       </a>
     </div>
     <!--輪播結束-->
-    <!---swiper-->
-    <div class="section-title my-5"><h4>獨創教材</h4></div>
-    <Sale/>
-    <!---swiper-->
-    <!-- 介紹 -->
-    <section class="mb-3 d-flex flex-md-row flex-column h-100">
-      <div class=" d-flex flex-column justify-content-center bg-light rounded w-50 p-4">
-        <h3 class="font-weight-bold">如何使用</h3>
-        <p>1.預約課程<br>2.使用Skype</p>
-      </div>
-      <img src="images/banner_7.jpg" class="pic w-50 rounded d-none d-md-block">
-    </section>
-    <!-- 介紹 -->
     <!--說明開始-->
     <section class="">
-      <section class="row text-center container-fluid bg-light">
-        <div class="col-12 col-md-4">
-          <div class="single-item">
-            <img src="images/hand_good.png" class="adv_pic">
-            <h4>優質師資團隊</h4>
-            <p>多達20個國家的專業英文家教</p>
-          </div>
+      <section class="row justify-content-center text-center container-fluid">
+        <div class="vertical-line">
+            <img src="../../public/images/vertical-line.svg" alt="vertical line">
         </div>
-        <div class="col-12 col-md-4">
-          <div class="single-item">
-            <img src="images/study_english.png" class="adv_pic">
-            <h4>專業英文教材</h4>
-            <p>多種主題</p>
+        <div class="list">
+          <div class="d-flex align-items-center benefit">
+            <div class="adv">
+              <img src="../../public/images/hand_good.png" class="adv_pic">
+            </div>
+            <div class="singleItem">
+              <h4>優質師資團隊</h4>
+              <p class="text-left text-muted">
+                多達20個國家的專業英文家教
+                Scan the QR code and the bike will unlock. Retract the cable lock, put on a helmet, and you’re off! Always lock bikes away from walkways and accessibility ramps.
+              </p>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-md-4">
-          <div class="single-item">
-            <img src="images/clock.png" class="adv_pic">
-            <h4>全年無休</h4>
-            <p>24小時線上營運</p>
+          <div class="d-flex align-items-center benefit">
+            <div class="adv">
+              <img src="../../public/images/study_english.png" class="adv_pic">
+            </div>
+            <div class="singleItem">
+              <h4>專業英文教材</h4>
+              <p class="text-left text-muted">
+                多種主題
+                We show the most important info for the scooters closest to you. So you know how much charge they have left and can see roughly how much it will cost.
+              </p>
+            </div>
+          </div>
+          <div class="d-flex align-items-center benefit">
+            <div class="adv">
+              <img src="../../public/images/clock.png" class="adv_pic">
+            </div>
+            <div class="singleItem">
+              <h4>全年無休</h4>
+              <p class="text-left text-muted">
+                24小時線上營運
+                Use the app to find the nearest scooter to you. We are continuously placing scooters in the areas with most demand, so one should never be too far away.
+              </p>
+            </div>
           </div>
         </div>
       </section>
     </section>
-    <!--說明開始-->
+    <!-- 介紹 -->
+    <section class="mb-5 d-flex flex-md-row flex-column intro">
+      <div class=" d-flex flex-column justify-content-center rounded p-4">
+        <h3 class="font-weight-bold text-secondary">Easy to use riding telemetry</h3>
+        <p class="text-muted">
+          The Scoot app is available with riding telemetry. This means it can show you your average speed, how long you've been using the scooter, your traveling distance, and many more things all in an easy to use app.
+          1.預約課程<br>2.使用Skype</p>
+        <a href="about.html"><button class="learnBtn btn">瞭解更多</button></a>
+      </div>
+      <img src="../../public/images/womantel.jpg" class="pic ">
+      <img src="../../public/images/left-downward-arrow.svg" class="arrow d-md-block d-none" >
+    </section>
+    <!-- 介紹 -->
+    <!---swiper-->
+    <div class="section-title my-5"><h4>獨創教材</h4></div>
+    <Sale/>
+    <!---swiper-->
     <!---學員心得-->
     <section class="container mb-5">
       <h4 class="section-title mt-5">學員心得</h4>
@@ -93,7 +116,7 @@
       </div>
     </section>
     <!---優惠專區-->
-    <section class="jumbotron jumbotron-fluid follow d-flex flex-column justify-content-center mb-0">
+    <section class="bg-email jumbotron jumbotron-fluid follow d-flex flex-column justify-content-center mb-0">
       <div class="container">
         <h2 class="font-weight-bold text-secondary text-center mb-3">填寫Email送您免費體驗課</h2>
         <div class="row justify-content-center">

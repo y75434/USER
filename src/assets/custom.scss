@@ -1,3 +1,9 @@
+@import url("https://fonts.googleapis.com/css?family=Lexend+Deca|Space+Mono:400,700&display=swap");
+
+body{
+  font-family: "Lexend Deca", sans-serif;
+
+}
 
 .navbar{
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
@@ -19,3 +25,45 @@
   transform: scale(1.2);
   box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
 }
+
+.aboutImg{
+  width: 30rem;
+  height: 30rem;
+  right: -5rem;
+  border-radius: 0.9375rem;
+}
+
+
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 2rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: 10rem;
+  height: 3rem;
+  padding: 1rem 1rem;
+}
+
+.learnBtn{
+  height: 53px;
+    width: 180px;
+    text-align: center;
+    background-color: #FCB72B;
+    color: white;
+    font-size: 65%;
+    font-weight: bold;
+}
+
+
+
+  .arrow{
+    position: absolute;
+    top: 350px;
+    right: -30px;
+    color:#f16718;
+  }
+
+  .benefit{
+    height: 200px;
+  }
