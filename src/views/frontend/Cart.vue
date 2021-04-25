@@ -35,10 +35,9 @@
                 <td class="border-0 align-middle">
                   <div class=" d-flex">
                     <select v-model.number="item.quantity" class="form-control">
-                      <option class="text-center" value="1">1</option>
-                      <option class="text-center" value="2">2</option>
-                      <option class="text-center" value="3">3</option>
-                      <option class="text-center" value="4">4</option>
+                      <option :value="num" v-for="num in 10" :key="num" >
+                      {{ num }}
+                      </option>
                     </select>
                   </div>
                 </td>
@@ -79,11 +78,12 @@
           </div>
         </div>
       </section>
-      <section v-else class="row ">
+      <section v-else class="row justify-content-center" style="height: 80vh;">
         <div class="justify-content-center align-items-center flex-column h-100 w-100 m-5">
-          <img src="images/neko.png" class="mx-auto cart-pic d-flex justify-content-center">
-          <h3 class="text-center text-secondary">目前購物車是空的</h3>          <div class="text-center">
-            <router-link to="/products" class=" btn btn-info btn-lg" type="button">
+          <img src="images/neko.png" class="mx-auto mb-4 cart-pic d-flex justify-content-center">
+          <h3 class="text-center text-secondary mb-4">目前購物車是空的</h3>
+          <div class="text-center">
+            <router-link to="/products" class="goBtn btn" type="button">
             繼續購物
             </router-link>
           </div>

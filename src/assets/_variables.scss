@@ -11,7 +11,7 @@ $gray-200: #e9ecef !default;
 $gray-300: #dee2e6 !default;
 $gray-400: #ced4da !default;
 $gray-500: #adb5bd !default;
-$gray-600: #6c757d !default;
+$gray-600: #797471 !default;
 $gray-700: #495057 !default;
 $gray-800: #343a40 !default;
 $gray-900: #212529 !default;
@@ -64,11 +64,11 @@ $colors: map-merge(
   $colors
 );
 
-$primary:       #f0f0f0 !default;
+$primary:       #6e6767 !default;
 $secondary:     #495567 !default;
 $success:       #e0b1a2cb !default;
 $info:          #acaba7 !default;
-$warning:       #f8c7bf !default;
+$warning:       #ecdddb !default;
 $danger:        $red !default;
 $light:         #7B8BAD !default;
 $dark:          #c5aba1 !default;

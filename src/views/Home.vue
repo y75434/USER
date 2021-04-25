@@ -42,8 +42,7 @@
             <div class="singleItem">
               <h4>優質師資團隊</h4>
               <p class="text-left text-muted">
-                多達20個國家的專業英文家教
-                Scan the QR code and the bike will unlock. Retract the cable lock, put on a helmet, and you’re off! Always lock bikes away from walkways and accessibility ramps.
+                我們有來自美國、英國的Native Speaker，以及包括英語運用能力相當傑出優秀的菲律賓、塞爾維亞等世界120多國以上的不同國籍講師。透過活用各自的特色和經驗，為您提供豐富多元的一對一課程。
               </p>
             </div>
           </div>
@@ -54,8 +53,7 @@
             <div class="singleItem">
               <h4>專業英文教材</h4>
               <p class="text-left text-muted">
-                多種主題
-                We show the most important info for the scooters closest to you. So you know how much charge they have left and can see roughly how much it will cost.
+                短時間內也能練習口說和聽力，持之以恆就能提高英語能力。不只侷限於課程。而是打造了輕鬆愉快的環境，進行「反覆學習」，為提升英語程度提供了最佳的學習方式。
               </p>
             </div>
           </div>
@@ -66,8 +64,7 @@
             <div class="singleItem">
               <h4>全年無休</h4>
               <p class="text-left text-muted">
-                24小時線上營運
-                Use the app to find the nearest scooter to you. We are continuously placing scooters in the areas with most demand, so one should never be too far away.
+                在24小時365天讓您在想到的瞬間，隨時都能上英語會話課程。
               </p>
             </div>
           </div>
@@ -77,10 +74,10 @@
     <!-- 介紹 -->
     <section class="mb-5 d-flex flex-md-row flex-column intro">
       <div class=" d-flex flex-column justify-content-center rounded p-4">
-        <h3 class="font-weight-bold text-secondary">Easy to use riding telemetry</h3>
+        <h3 class="font-weight-bold text-secondary">隨時隨地英語會話課程</h3>
         <p class="text-muted">
-          The Scoot app is available with riding telemetry. This means it can show you your average speed, how long you've been using the scooter, your traveling distance, and many more things all in an easy to use app.
-          1.預約課程<br>2.使用Skype</p>
+          在家防疫也能同步學習。 與來至超過100個不同國籍的老師一同學習。迅速提升英語能力，遇到外國人不卡卡。
+        </p>
         <a href="about.html"><button class="learnBtn btn">瞭解更多</button></a>
       </div>
       <img src="../../public/images/womantel.jpg" class="pic ">
@@ -118,8 +115,8 @@
     <!---優惠專區-->
     <section class="bg-email jumbotron jumbotron-fluid follow d-flex flex-column justify-content-center mb-0">
       <div class="container">
-        <h2 class="font-weight-bold text-secondary text-center mb-3">填寫Email送您免費體驗課</h2>
-        <div class="row justify-content-center">
+        <h2 class="font-weight-bold text-warning text-right mb-3">填寫Email送您免費體驗課</h2>
+        <div class="row justify-content-end">
             <validation-observer v-slot="{ invalid }">
               <validation-provider v-slot="{ errors,classes}" rules="required|email">
                 <div class="input-group-lg justify-content-center d-flex">

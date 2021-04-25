@@ -2,7 +2,7 @@
 
 body{
   font-family: "Lexend Deca", sans-serif;
-
+  overflow-x: hidden;
 }
 
 .navbar{
@@ -21,10 +21,7 @@ body{
   padding: 0;
 }
 
-.product-img:hover{
-  transform: scale(1.2);
-  box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
-}
+
 
 .aboutImg{
   width: 30rem;

@@ -3,20 +3,17 @@
 }
 
 .aboutBtn{
-  border: 1px solid rgba(122, 149, 201, 0.4);
+  border: none;
   border-radius: 2rem;
-    // font-size: 0.8rem;
-    // font-weight: 600;
-    // width: 10rem;
-    // height: 3rem;
-    // padding: 1rem 1rem;
+  background-color: #dc3545;
+  color: white;
 }
 
 .aboutBg{
   width: 3rem;
   height: 3rem;
   border-radius: 16px;
-  background-color: #f16718;
+  background-color: #ffc107de;
   background-repeat: no-repeat;
   background-position: center;
 

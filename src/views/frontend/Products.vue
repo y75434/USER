@@ -4,7 +4,7 @@
     <div class="mb-5 w-100">
       <div class="productHeader">
       </div>
-      </div>
+    </div>
     <div class="container">
       <div class="row">
         <div class="col-md-3 d-none d-md-block">
@@ -44,12 +44,12 @@
             <div class="col-md-4" v-for="item in categories" :key="item.id">
               <div class="card border-0 mb-4 position-relative">
                 <router-link :to="`/product/${ item.id }`">
-                  <img class="card-img-top rounded product-img" style="height: 180px; background-size: cover; background-position: center;" :style="{ backgroundImage: `url(${ item.imageUrl[0] })` }">
+                  <img class="card-img-top border-0 rounded product-img" style="" :style="{ backgroundImage: `url(${ item.imageUrl[0] })` }">
                 </router-link>
                   <div class="card-body p-0 ">
                     <h4 class="mb-0 mt-3">{{ item.title }}<span class="badge badge-secondary float-right" >{{ item.category }}</span></h4>
-                    <p class="card-text mb-0">特價 {{ item.price }} 元<span class="text-muted float-right"> <del>原價 {{ item.origin_price }} 元</del></span></p>
-                    <button class="btn btn-lg btn-warning btn-block mt-2 rounded" style="color: #fff;" @click.prevent="addToCart(item, quantity=1)">加入購物車</button>
+                    <p class="card-text mb-4">特價 {{ item.price }} 元<span class="text-muted float-right"> <del>原價 {{ item.origin_price }} 元</del></span></p>
+                    <button class="productBtn mt-2" style="color: #fff;" @click.prevent="addToCart(item, quantity=1)">加入購物車</button>
                   </div>
               </div>
             </div>
@@ -147,6 +147,3 @@ export default {
   }
 }
 </script>
-
-<style>
-</style>

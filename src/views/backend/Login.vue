@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid">
     <loading :active.sync="isLoading"></loading>
-    <section class="row bg-light">
+    <section class="row">
       <section class="col-md-5 vh-100 d-md-block d-none">
         <img src="images/banner_3.jpeg" class="h-100 bg-cover">
       </section>
@@ -16,10 +16,12 @@
             <label for="inputPassword" class="sr-only">Password</label>
             <input id="inputPassword" v-model="user.password" type="password" class="form-control" placeholder="Password" required>
           </div>
-          <button class="btn btn-lg btn-info btn-block text-white mb-2" type="submit"  >登入</button>
-          <router-link to="/">
-           <button class="btn btn-lg btn-primary btn-block text-white">回首頁</button>
-          </router-link>
+          <div class="d-flex justify-content-center">
+            <button class="btn btn-lg btn-info btn-block text-white mr-2 mb-2" type="submit">登入</button>
+            <router-link to="/">
+            <button class="btn btn-lg btn-primary btn-block text-white">回首頁</button>
+            </router-link>
+          </div>
         </form>
       </section>
     </section>

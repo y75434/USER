@@ -5,7 +5,7 @@
       <div class=" swiper-wrapper">
         <div class="card swiper-slide">
           <router-link to="/product/Qg7crJF5EahzBuSz0AGvvpLedewi5nYUAiMzxEfSAuLwkvc0Roa1ZHMYVOcjc23B">
-            <img class="card-img-top" src="images/lesson_4.jpg">
+            <img class="card-img-top h-100" src="images/lesson_4.jpg">
           </router-link>
           <div class="card-body">
               <h5 class="card-title">主題會話</h5>

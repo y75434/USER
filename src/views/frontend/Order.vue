@@ -16,7 +16,7 @@
     </ul>
     <div class="row justify-content-center">
       <loading :active.sync="isLoading"></loading>
-      <div class="col-6 mb-5 orderForm">
+      <div class="col-12 col-md-6 mb-5 orderForm">
         <h3 class="text-center text-secondary">請填寫聯絡資料</h3>
         <validation-observer v-slot="{ invalid }" class="col-md-8">
           <form @submit.prevent="createOrder">

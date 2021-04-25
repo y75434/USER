@@ -4,12 +4,12 @@
     <div class="container pt-3" v-if="product.id">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white">
-          <li class="breadcrumb-item text-info"><router-link to="/">首頁</router-link></li>
-          <li class="breadcrumb-item text-info"><router-link to="/products">課程方案</router-link></li>
+          <li class="breadcrumb-item "><router-link to="/">首頁</router-link></li>
+          <li class="breadcrumb-item "><router-link to="/products">課程方案</router-link></li>
           <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
         </ol>
       </nav>
-      <div class="row mb-4">
+      <div class="row mb-4 align-items-center">
         <div class="col-md-6 mb-5">
           <div class="d-flex justify-content-center">
             <img :src="product.imageUrl[0]" alt="" class="img-fluid rounded" />
@@ -23,14 +23,13 @@
                 {{ product.content }}
               </p>
               <div class="d-flex flex-column align-items-end mb-3">
-                <del class="mb-0 mb-2">
+                <del class="mb-0 mb-2 text-muted">
                   原價 {{ product.origin_price }} / {{ product.unit }}
                 </del>
-                <p class="mb-0 h5 font-weight-bold" style="color:  #96827B;">
+                <p class="mb-0 h5 font-weight-bold" style="color:#96827B;">
                 特價 {{ product.price }} / {{ product.unit }}
                 </p>
               </div>
-              <p class="h5 text-right" type="number">小計 {{ (product.price * product.num) | product.price  }}</p>
               <div class="d-flex">
                 <div class="input-group w-50 mr-3">
                   <select name="unit" class="form-control mr-3 rounded-0" v-model="product.num" >
@@ -45,12 +44,15 @@
           </div>
         </div>
       </div>
+      <h3 class="text-muted mb-4"><strong>其他課程</strong></h3>
+      <Sale/>
     </div>
   </div>
 </template>
 
 <script>
 import Toast from '@/components/Toast'
+import Sale from '@/components/Swiper'
 
 export default {
   data () {
@@ -63,6 +65,9 @@ export default {
         num: 1
       }
     }
+  },
+  components: {
+    Sale
   },
   created () {
     this.isLoading = true
@@ -111,3 +116,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss">
+.breadcrumb-item + .breadcrumb-item::before {
+    padding-right: 1.2rem;
+    color: none;
+}
+</style>
