@@ -19,7 +19,7 @@
           <router-link class="nav-link" to="/cart">購物車
             <i class="fas fa-shopping-cart"></i>
             <span class="badge badge-pill badge-danger"
-              style="transform: translateX(-4px) translateY(6px);" >{{ cartTotal }}
+              style="transform: translateX(-4px) translateY(6px);" v-if="cartTotal > 0">{{ cartTotal }}
             </span>
           </router-link>
         </div>

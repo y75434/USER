@@ -114,6 +114,7 @@ export default {
             icon: 'warning'
           })
         }
+        this.isLoading = false
       })
     },
     getCart () { // 購物車

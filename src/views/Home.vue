@@ -32,7 +32,7 @@
     <section class="">
       <section class="row justify-content-center text-center container-fluid">
         <div class="vertical-line">
-            <img src="../../public/images/vertical-line.svg" alt="vertical line">
+            <img src="../../public/images/vertical-line.svg" class="d-md-block d-none" alt="vertical line">
         </div>
         <div class="list">
           <div class="d-flex align-items-center benefit">
@@ -73,14 +73,14 @@
     </section>
     <!-- 介紹 -->
     <section class="mb-5 d-flex flex-md-row flex-column intro">
-      <div class=" d-flex flex-column justify-content-center rounded p-4">
-        <h3 class="font-weight-bold text-secondary">隨時隨地英語會話課程</h3>
-        <p class="text-muted">
-          在家防疫也能同步學習。 與來至超過100個不同國籍的老師一同學習。迅速提升英語能力，遇到外國人不卡卡。
-        </p>
+      <div class="mb-5 d-flex flex-column justify-content-center align-items-center rounded p-4">
+        <h3 class="mb-3 font-weight-bold ">隨時隨地英語會話課程</h3>
+        <h5 class="mb-4 text-muted w-50">
+          在家防疫也能同步學習。 與來至超過100個不同國籍的老師一同學習。迅速提升英語能力。
+        </h5>
         <a href="about.html"><button class="learnBtn btn">瞭解更多</button></a>
       </div>
-      <img src="../../public/images/womantel.jpg" class="pic ">
+      <img src="../../public/images/womantel.jpg" class="pic d-md-block d-none">
       <img src="../../public/images/left-downward-arrow.svg" class="arrow d-md-block d-none" >
     </section>
     <!-- 介紹 -->

@@ -18,7 +18,7 @@
               <div class="col-sm-4">
                   <div class="form-group">
                       <label for="imageUrl">輸入圖片網址</label>
-                      <input id="imageUrl" v-model="tempProduct.imageUrl[0]" type="text" class="form-control" placeholder="請輸入圖片連結">
+                      <input id="imageUrl" v-model="tempProduct.imageUrl" type="text" class="form-control" placeholder="請輸入圖片連結">
                   </div>
                   <img class="img-fluid" :src="tempProduct.imageUrl" alt="">
               </div>
@@ -106,22 +106,37 @@
 import $ from 'jquery'
 
 export default {
+  data () {
+    return {
+      tempProduct: {
+        imageUrl: []
+      }
+    }
+  },
   props: {
-    tempProduct: {
-      type: Object,
+    isNew: {
+      type: Boolean,
       required: true
     }
   },
   methods: {
+    getProduct (id) {
+      const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product/${id}`
+      this.$http.get(url).then(res => {
+        this.tempProduct = res.data.data
+        $('#productModal').modal('show')
+      }).catch((error) => {
+        console.log(error)
+      })
+    },
     // 刪除產品
     delProduct () {
       const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
       this.$http.delete(url).then(() => {
-        $('#delProductModal').modal('hide')// 刪除成功後關閉頁面
-        this.getProducts()// 重新取得全部資料
+        $('#delProductModal').modal('hide')
       })
     },
-    // 更新產品資訊
+    // 新增更新產品資訊
     updateProduct () {
       let url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product`
       let httpMethod = 'post'
@@ -130,14 +145,12 @@ export default {
         url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
         httpMethod = 'patch'
       }
-      // 預設帶入token
-      this.$http.defaults.headers.common.Authorization = `Bearer ${this.user.token}`
 
       this.$http[httpMethod](url, this.tempProduct).then(() => {
-        $('#productModal').modal('hide')// ajax新增成功後隱藏Modal
-        this.getProducts()// 重新取得全部產品資料
-      }).catch((error) => {
-        console.log(error)
+        this.$emit('update')
+        $('#productModal').modal('hide')
+      }).catch(() => {
+        console.log()
       })
     }
   }

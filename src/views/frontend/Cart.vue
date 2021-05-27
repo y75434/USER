@@ -19,7 +19,7 @@
         <div class="col-md-7 d-md-block d-none">
           <table class="table table-td">
             <thead>
-              <tr>
+              <tr class="border-0">
                 <th scope="col" class="border-0 px-3" >產品名稱</th>
                 <th scope="col" class="border-0 px-3">數量</th>
                 <th scope="col" class="border-0">金額</th>
@@ -34,7 +34,7 @@
                 </td>
                 <td class="border-0 align-middle">
                   <div class=" d-flex">
-                    <select v-model.number="item.quantity" class="form-control">
+                    <select @change="totalUpdate" v-model.number="item.quantity" class="form-control">
                       <option :value="num" v-for="num in 10" :key="num" >
                       {{ num }}
                       </option>
@@ -72,8 +72,8 @@
               <p class="mb-4 h4 font-weight-bold">總計</p>
               <p class="mb-0 h4 font-weight-bold float-right"  type="number">{{ cartTotal | money }}</p>
             </div>
-            <div class="">
-              <router-link to="/order" class="btn btn-warning btn-block float-right mb-5" >前往結帳</router-link>
+            <div class="mb-4">
+              <router-link to="/order" class="btn btn-block text-white float-right  goBtn" >前往結帳</router-link>
             </div>
           </div>
         </div>
