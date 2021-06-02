@@ -20,6 +20,7 @@
                       <label for="imageUrl">輸入圖片網址</label>
                       <input id="imageUrl" v-model="tempProduct.imageUrl" type="text" class="form-control" placeholder="請輸入圖片連結">
                   </div>
+
                   <img class="img-fluid" :src="tempProduct.imageUrl" alt="">
               </div>
               <div class="col-sm-8">
@@ -104,6 +105,7 @@
 
 <script>
 import $ from 'jquery'
+import Toast from '@/components/Toast'
 
 export default {
   data () {
@@ -122,6 +124,7 @@ export default {
   methods: {
     getProduct (id) {
       const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product/${id}`
+      console.log(url)
       this.$http.get(url).then(res => {
         this.tempProduct = res.data.data
         $('#productModal').modal('show')
@@ -133,7 +136,20 @@ export default {
     delProduct () {
       const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
       this.$http.delete(url).then(() => {
+        this.$emit('update')
+        Toast.fire({
+          title: '已刪除',
+          icon: 'success'
+        })
         $('#delProductModal').modal('hide')
+      }).catch(err => {
+        const errorData = err.response.data.errors
+        if (errorData) {
+          Toast.fire({
+            title: `${errorData}`,
+            icon: 'warning'
+          })
+        }
       })
     },
     // 新增更新產品資訊
@@ -144,13 +160,26 @@ export default {
       if (!this.isNew) {
         url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
         httpMethod = 'patch'
+        console.log('done')
+      } else {
+        console.log('aa')
       }
 
       this.$http[httpMethod](url, this.tempProduct).then(() => {
         this.$emit('update')
+        Toast.fire({
+          title: '已更新',
+          icon: 'success'
+        })
         $('#productModal').modal('hide')
-      }).catch(() => {
-        console.log()
+      }).catch(err => {
+        const errorData = err.response.data.errors
+        if (errorData) {
+          Toast.fire({
+            title: `${errorData}`,
+            icon: 'warning'
+          })
+        }
       })
     }
   }

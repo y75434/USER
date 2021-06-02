@@ -30,7 +30,6 @@
 
 <script>
 import swal from 'sweetalert'
-// import axios from 'axios'
 
 export default {
   name: 'Login',
@@ -50,7 +49,6 @@ export default {
       this.$http.post(url, this.user).then((res) => {
         const token = res.data.token
         const expired = res.data.expired
-        console.log(res.data)
         document.cookie = `token=${token};expires=${new Date(expired * 1000)}; path=/`
         // this.isLoading = false
         // 轉換頁面

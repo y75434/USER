@@ -89,29 +89,46 @@
     <Sale/>
     <!---swiper-->
     <!---學員心得-->
-    <section class="container mb-5">
-      <h4 class="section-title mt-5">學員心得</h4>
-      <div class="row justify-content-center">
-        <div class="col-4 text-center">
-          <img src="images/rate_1.png" class="rate_pic">
-          <p>Evan</p>
-          <span></span>
-          <p>上課的平台在使用操作上簡單方便</p>
-        </div>
-        <div class="col-4 text-center">
-          <img src="images/rate_2.png" class="rate_pic">
-          <p>Linda</p>
-          <span></span>
-          <p>老師非常親切有耐心</p>
-        </div>
-        <div class="col-4 text-center">
-          <img src="images/rate_3.png" class="rate_pic">
-          <p>Kevin</p>
-          <span></span>
-          <p>課程安排客製化</p>
-        </div>
-      </div>
-    </section>
+    <div class="container-fluid my-5">
+      <h4 class="section-title pb-5">學員心得</h4>
+        <ul class="row mb-5">
+          <li class="col-md-4">
+            <div class="card rounded-0 text-center text-primary" >
+              <div class="cat bg-cover position-relative">
+                <img class="card-img-top position-absolute rate_pic" src="images/rate_1.png" >
+              </div>
+              <div class="card-body">
+                <h5 class="card-title mb-2">Evan</h5>
+                <p class="card-text mb-2">上課的平台操作簡單方便</p>
+
+              </div>
+            </div>
+          </li>
+          <li class="col-md-4 col-12">
+            <div class="card rounded-0 text-center text-primary" >
+              <div class="cardTop bg-cover position-relative">
+                <img class="card-img-top position-absolute rate_pic" src="images/rate_2.png"  >
+              </div>
+              <div class="card-body">
+                <h5 class="card-title mb-2">Linda</h5>
+                <p class="card-text mb-2">老師非常親切有耐心</p>
+              </div>
+            </div>
+          </li>
+          <li class="col-md-4">
+            <div class="card rounded-0 text-center text-primary" >
+              <div class="cardTop bg-cover position-relative">
+                <img class="card-img-top position-absolute rate_pic" src="images/rate_3.png"  >
+              </div>
+              <div class="card-body">
+                <h5 class="card-title mb-2">Kevin</h5>
+                <p class="card-text mb-2">課程安排客製化</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+    </div>
+
     <!---優惠專區-->
     <section class="bg-email jumbotron jumbotron-fluid follow d-flex flex-column justify-content-center mb-0">
       <div class="container">

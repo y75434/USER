@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-3">
     <div>
-      <button class="btn btn-info" @click="openModal('new')">建立產品</button>
+      <button style="color: #fff;" class="btn btn-info" @click="openModal('new')">建立產品</button>
     </div>
     <table class="table mt-4">
       <thead class="thead-light">
@@ -26,10 +26,10 @@
           </td>
           <td>
             <div class="btn-group">
-              <button class="btn btn-primary btn-sm" @click="openModal('edit', item)">
+              <button style="border-radius: 0rem; width: 5rem; color: #fff; margin:.5rem;" class="btn btn-success btn-sm" @click="openModal('edit', item)">
                   編輯
               </button>
-              <button class="btn btn-danger btn-sm " @click="openModal('delete', item)">
+              <button style="border-radius: 0rem; width: 5rem; margin:.5rem;" class="btn btn-danger btn-sm " @click="openModal('delete', item)">
                   刪除
               </button>
             </div>
@@ -92,6 +92,8 @@ export default {
           this.$refs.Modal.tempProduct = {
             imageUrl: []
           }
+          console.log(this.$refs.Modal.tempProduct)
+
           $('#productModal').modal('show')
           break
         case 'edit':
@@ -101,7 +103,7 @@ export default {
           break
         case 'delete':
           // 目前範本僅有一層物件，因此使用淺拷貝
-          this.tempProduct = Object.assign({}, item)
+          this.tempProduct = { ...item }
           // 拷貝完畢後開啟Modal
           $('#delProductModal').modal('show')
           break
@@ -120,32 +122,6 @@ export default {
         console.log(error)
       })
     }
-    // 上傳圖片
-    // uploadFile () {
-    // // 把檔案內容取出來(第一個檔案)
-    //   const uploadedFile = this.$refs.file.file[0]
-    //   const formData = new FormData()
-    //   formData.append('file', uploadedFile)
-    //   const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/storage`
-    //   this.status.fileUploading = true
-    //   this.$http.post(url, formData, {
-    //     // 聲明內容傳遞時需用formData格式，以便後端做判斷
-    //     headers: {
-    //       'Content-Type': 'multipart/form-data'
-    //     }
-    //     // 上傳成功
-    //   }).then((response) => {
-    //     this.status.fileUploading = false
-    //     if (response.status === 200) {
-    //       // 使圖片路徑等於剛上傳的路徑(把圖片路徑存下來)
-    //       this.tempProduct.imageUrl.push(response.data.data.path)
-    //     }
-    //     // 上傳失敗
-    //   }).catch(() => {
-    //     console.log('不可超過 2 MB')
-    //     this.status.fileUploading = false
-    //   })
-    // }
   }
 }
 </script>
