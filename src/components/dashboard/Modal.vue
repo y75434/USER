@@ -77,7 +77,7 @@
   </div>
 </div>
 </div>
-<!---刪除產品modal--->
+<!--刪除產品modal-->
 <div id="delProductModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content border-0">
