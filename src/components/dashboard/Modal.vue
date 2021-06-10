@@ -77,29 +77,6 @@
   </div>
 </div>
 </div>
-<!---刪除產品modal--->
-<div id="delProductModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content border-0">
-      <div class="modal-header bg-danger text-white">
-        <h5 id="exampleModalLabel" class="modal-title">
-          <span>刪除產品</span>
-        </h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        是否刪除
-        <strong class="text-danger">{{ tempProduct.title }}</strong> 商品(刪除後將無法恢復)。
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">取消</button>
-        <button type="button" class="btn btn-danger" @click="delProduct">確認刪除</button>
-      </div>
-    </div>
-  </div>
-</div>
   </div>
 </template>
 
@@ -123,33 +100,19 @@ export default {
   },
   methods: {
     getProduct (id) {
+      this.isLoading = true
+
       const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product/${id}`
-      console.log(url)
       this.$http.get(url).then(res => {
         this.tempProduct = res.data.data
         $('#productModal').modal('show')
-      }).catch((error) => {
-        console.log(error)
-      })
-    },
-    // 刪除產品
-    delProduct () {
-      const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
-      this.$http.delete(url).then(() => {
-        this.$emit('update')
+        this.isLoading = false
+      }).catch((err) => {
+        this.isLoading = false
         Toast.fire({
-          title: '已刪除',
-          icon: 'success'
+          title: `${err}`,
+          icon: 'warning'
         })
-        $('#delProductModal').modal('hide')
-      }).catch(err => {
-        const errorData = err.response.data.errors
-        if (errorData) {
-          Toast.fire({
-            title: `${errorData}`,
-            icon: 'warning'
-          })
-        }
       })
     },
     // 新增更新產品資訊
@@ -160,9 +123,6 @@ export default {
       if (!this.isNew) {
         url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/ec/product/${this.tempProduct.id}`
         httpMethod = 'patch'
-        console.log('done')
-      } else {
-        console.log('aa')
       }
 
       this.$http[httpMethod](url, this.tempProduct).then(() => {
@@ -180,7 +140,29 @@ export default {
             icon: 'warning'
           })
         }
+        $('#productModal').modal('hide')
       })
+    },
+    uploadFile () {
+      const url = `${process.env.VUE_APP_APIPATH}api/${process.env.VUE_APP_UUID}/admin/upload`
+      const uploadedFile = this.$refs.files.files[0]
+      const formData = new FormData()
+      formData.append('file-to-upload', uploadedFile)
+      this.status = true
+      this.$http
+        .post(url, formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        })
+        .then(res => {
+          this.status = false
+          if (res.data.success) {
+            this.$set(this.tempProduct, 'imageUrl', res.data.imageUrl)
+          } else {
+            this.$bus.$emit(res.data.message)
+          }
+        })
     }
   }
 }

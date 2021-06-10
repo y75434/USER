@@ -16,7 +16,7 @@
             <i class="fas fa-battery-full"></i>
           </div>
         </div>
-        <h4 class="font-weight-bold mb-3">我可以在這裡上什麼樣的課程？</h4>
+        <h4 class="font-weight-bold mb-3">可以在這裡上什麼樣的課程？</h4>
         <p class="text-light">您可以根據自己的意願選擇各種課程，例如使用原始教材和網路新聞的課程，自由交談等。</p>
       </section>
       <section class="col-lg-3 col-md-6">
@@ -25,8 +25,8 @@
             <i class="fas fa-wine-bottle"></i>
           </div>
         </div>
-        <h4 class="font-weight-bold mb-3">我可以在這裡上什麼樣的課程？</h4>
-        <p class="text-light">您可以根據自己的意願選擇各種課程，例如使用原始教材和網路新聞的課程，自由交談等。</p>
+        <h4 class="font-weight-bold mb-3">是否可以自備教材進行學習？</h4>
+        <p class="text-light">學員可以自備自有的特殊教材也可以將您想要訓練的特殊需求，於開課的時候，告知您的課程顧問。課程顧問將會為您轉達給您的老師。</p>
       </section>
       <section class="col-lg-3 col-md-6">
         <div class="aboutBg mb-3">
@@ -34,7 +34,7 @@
             <i class="far fa-lightbulb"></i>
           </div>
         </div>
-        <h4 class="font-weight-bold mb-3">我該選擇什麼難度的課程？</h4>
+        <h4 class="font-weight-bold mb-3">該選擇什麼難度的課程？</h4>
         <p class="text-light">在第一堂免費體驗課中，老師將依您的口語測驗結果做分級</p>
       </section>
       <section class="col-lg-3 col-md-6">

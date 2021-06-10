@@ -1,5 +1,6 @@
 <template>
   <div class="container mt-3">
+    <loading :active.sync="isLoading"></loading>
     <div>
       <button style="color: #fff;" class="btn btn-info" @click="openModal('new')">建立產品</button>
     </div>
@@ -41,12 +42,16 @@
     <Pagination :pages="pagination" @emit-pages="getProducts"></Pagination>
 
     <Modal ref="Modal" :isNew="isNew" @update="getProducts" />
+
+    <delModal :temp-product="tempProduct" @update="getProducts" />
+
   </div>
 </template>
 
 <script>
 import Pagination from '@/components/dashboard/Pagination'
 import Modal from '@/components/dashboard/Modal'
+import delModal from '@/components/dashboard/delModal'
 import Toast from '@/components/Toast'
 import $ from 'jquery'
 
@@ -58,13 +63,15 @@ export default {
         imageUrl: []
       },
       pagination: {},
-      isNew: true
+      isNew: true,
+      isLoading: false
 
     }
   },
   components: {
     Pagination,
-    Modal
+    Modal,
+    delModal
   },
   created () {
     this.getProducts()
@@ -92,8 +99,6 @@ export default {
           this.$refs.Modal.tempProduct = {
             imageUrl: []
           }
-          console.log(this.$refs.Modal.tempProduct)
-
           $('#productModal').modal('show')
           break
         case 'edit':

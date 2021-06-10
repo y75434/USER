@@ -45,14 +45,14 @@
         </div>
       </div>
       <h3 class="text-muted mb-4"><strong>其他課程</strong></h3>
-      <Sale/>
+      <More :product="product" @update="getProduct"/>
     </div>
   </div>
 </template>
 
 <script>
 import Toast from '@/components/Toast'
-import Sale from '@/components/Swiper'
+import More from '@/components/More'
 
 export default {
   data () {
@@ -62,12 +62,13 @@ export default {
       },
       products: [],
       product: {
-        num: 1
+        num: 1,
+        imageUrl: []
       }
     }
   },
   components: {
-    Sale
+    More
   },
   created () {
     this.isLoading = true

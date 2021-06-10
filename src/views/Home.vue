@@ -92,7 +92,7 @@
     <div class="container-fluid my-5">
       <h4 class="section-title pb-5">學員心得</h4>
         <ul class="row mb-5">
-          <li class="col-md-4">
+          <li class="col-md-4  col-12 mb-5">
             <div class="card rounded-0 text-center text-primary" >
               <div class="cat bg-cover position-relative">
                 <img class="card-img-top position-absolute rate_pic" src="images/rate_1.png" >
@@ -104,7 +104,7 @@
               </div>
             </div>
           </li>
-          <li class="col-md-4 col-12">
+          <li class="col-md-4 col-12 mb-5">
             <div class="card rounded-0 text-center text-primary" >
               <div class="cardTop bg-cover position-relative">
                 <img class="card-img-top position-absolute rate_pic" src="images/rate_2.png"  >
@@ -115,7 +115,7 @@
               </div>
             </div>
           </li>
-          <li class="col-md-4">
+          <li class="col-md-4  col-12 mb-5">
             <div class="card rounded-0 text-center text-primary" >
               <div class="cardTop bg-cover position-relative">
                 <img class="card-img-top position-absolute rate_pic" src="images/rate_3.png"  >
@@ -134,17 +134,10 @@
       <div class="container">
         <h2 class="font-weight-bold text-warning text-right mb-3">填寫Email送您免費體驗課</h2>
         <div class="row justify-content-end">
-            <validation-observer v-slot="{ invalid }">
-              <validation-provider v-slot="{ errors,classes}" rules="required|email">
-                <div class="input-group-lg justify-content-center d-flex">
-                  <input id="Email" placeholder="請輸入電子郵件" type="email" class="form-control" :class="classes" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
-                  <button class="btn btn-primary rounded" @click.prevent="send()" :disabled="invalid">傳送</button>
-                </div>
-                <div class="input-group-append">
-                  <span class="text-danger">{{ errors[0] }}</span>
-                </div>
-              </validation-provider>
-            </validation-observer>
+          <form class="input-group-lg justify-content-center d-flex">
+            <input id="Email" placeholder="請輸入電子郵件" type="email" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-lg">
+            <button class="btn btn-primary rounded" type="submit">傳送</button>
+          </form>
         </div>
       </div>
     </section>
@@ -152,10 +145,8 @@
 </template>
 
 <script>
-// import Swiper from 'swiper'
 import 'swiper/swiper-bundle.css'
 import Sale from '@/components/Swiper.vue'
-import Toast from '@/components/Toast'
 
 export default {
   data () {
@@ -165,28 +156,6 @@ export default {
   },
   components: {
     Sale
-  },
-  methods: {
-    // setSwiper () {
-    //   this.bannerSwiper = new Swiper('.homeBanner', {
-    //     slidesPerView: 'auto',
-    //     loop: true,
-    //     speed: 800,
-    //     autoplay: {
-    //       delay: 2500,
-    //       disableOnInteraction: false
-    //     }
-    //   })
-    // },
-    send () {
-      Toast.fire({
-        title: '填寫完成，請至信箱查看信件',
-        icon: 'success'
-      })
-    }
-  },
-  mounted () {
-    // this.setSwiper()
   }
 }
 </script>
