@@ -1,5 +1,5 @@
 <template>
-  <div class="product pt-3">
+  <div class="product py-3 my-5">
     <loading :active.sync="isLoading"></loading>
     <div class="container pt-3" v-if="product.id">
       <nav aria-label="breadcrumb">
@@ -9,7 +9,7 @@
           <li class="breadcrumb-item active" aria-current="page">{{ product.title }}</li>
         </ol>
       </nav>
-      <div class="row mb-4 align-items-center">
+      <div class="row my-5 align-items-center h-100">
         <div class="col-md-6 mb-5">
           <div class="d-flex justify-content-center">
             <img :src="product.imageUrl[0]" alt="" class="img-fluid rounded" />
@@ -44,15 +44,12 @@
           </div>
         </div>
       </div>
-      <h3 class="text-muted mb-4"><strong>其他課程</strong></h3>
-      <More :product="product" @update="getProduct"/>
     </div>
   </div>
 </template>
 
 <script>
 import Toast from '@/components/Toast'
-import More from '@/components/More'
 
 export default {
   data () {
@@ -66,9 +63,6 @@ export default {
         imageUrl: []
       }
     }
-  },
-  components: {
-    More
   },
   created () {
     this.isLoading = true
@@ -109,7 +103,7 @@ export default {
       })
     },
     getProduct () {
-      this.$http.get(`${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/products`)
+      this.$http.get(`${process.env.VUE_APP_APIPATH}${process.env.VUE_APP_UUID}/ec/product`)
         .then((res) => {
           this.product = res.data.data
         })

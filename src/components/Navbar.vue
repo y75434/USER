@@ -1,7 +1,7 @@
 <template>
   <div>
     <nav class="navbar navbar-expand-lg navbar-light p-3">
-      <a class="navbar-brand" href="#">歡迎來到LearnEnglish</a>
+      <router-link class="navbar-brand"  to="/">歡迎來到LearnEnglish</router-link>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>

@@ -19,6 +19,7 @@ const routes = [
       },
       {
         path: 'product/:id',
+        name: 'Product',
         component: () => import('../views/frontend/Product.vue')
       },
       {
